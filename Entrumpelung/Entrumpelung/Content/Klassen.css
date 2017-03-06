@@ -1,0 +1,58 @@
+﻿.navbar
+{
+    background-color: #95E632;
+    border-bottom : hidden;
+    border-top-width : medium;
+    border-top-color : #85E632;
+    color : red; 
+}
+
+.navbar-toggle
+{
+    background-color: #95C632;
+}
+
+.container
+{
+    border-color : red;
+    border-width : 20px;
+}
+
+.klassen-tel
+{
+    border-bottom-width : 20px;
+    border-bottom-color : rebeccapurple;
+    background-color :rgba(255,0,0,1);
+    border-radius: 10px;
+    position : sticky;
+    top: 25px;
+    z-index : 5000;
+    margin-bottom: 5px
+}
+#telephonist
+{
+    
+    margin: auto;
+    background-repeat : no-repeat;
+    width : 100%;
+   
+
+}
+a{
+    word-break: break-all;
+}
+
+.topMarge{
+    margin-top: 10px;
+}
+
+.likeH2
+{
+    font-size:150%;
+    text-align:center;
+}
+.fullWH
+{
+    width:100%;
+    height:100%;
+}
