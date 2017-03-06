@@ -23,11 +23,22 @@
 
     <div class="info">
         <span>Wir beschäftigen uns mit:</span>
-        <br> ✔&nbsp; <a href="#Entrümpelung" id="test" class="underlineColor1">Entrümpelung</a>
-        <br> ✔&nbsp; <a href="#Haushaltsauflösung"  class="underlineColor1">Haushaltsauflösung</a>
-        <br> ✔&nbsp; <a href="#Wohnungsauflösung"  class="underlineColor1">Wohnungsauflösung</a>
-        <br> ✔&nbsp; <a href="#Wohnungsräumung"  class="underlineColor1">Wohnungsräumung</a>
-        <br> ✔&nbsp; <a href="#Tatortreiniger"  class="underlineColor1">Tatortreiniger</a><br>
+        <div class="underlineColor1">
+            <br> ✔&nbsp; <a href="#Entrümpelung" id="test" > Entrümpelung</a>
+        </div>
+        <div class="underlineColor1">
+            <br> ✔&nbsp; <a href="#Haushaltsauflösung">Haushaltsauflösung</a>
+        </div>
+        <div class="underlineColor1">
+            <br> ✔&nbsp; <a href="#Wohnungsauflösung" >Wohnungsauflösung</a>
+        </div>
+        <div class="underlineColor1">
+            <br> ✔&nbsp; <a href="#Wohnungsräumung" >Wohnungsräumung</a>
+        </div>
+        <div class="underlineColor1">
+            <br> ✔&nbsp; <a href="#Tatortreiniger" class="underlineColor1" onclick="SmartScroll(this.event)">Tatortreiniger</a><br>
+        </div>
+
     </div>
 
     <h1 style="font-weight:bold; font-size:120%;">Unser service</h1>
@@ -54,7 +65,7 @@
             <img class="fullWH" src="~/Content/IMG/WorkerHome.jpg" />
         </div>
         <div class="col-xs-6 col-sm-6 ">
-            <strong class="likeH2 text-center"><a name="Haushaltsauflösung" class="underlineColor1" href="/Home/Haushaltsauflösung" style="word-break: break-word;">Haushaltsauflösung</a></strong>
+            <strong class="likeH2 text-center"><a id="test2" name="Haushaltsauflösung" class="underlineColor1" href="/Home/Haushaltsauflösung" style="word-break: break-word;">Haushaltsauflösung</a></strong>
             <ul>
                 <li>Hausentrümpelungen von </li>
                 <li>Dachböden </li>
@@ -104,7 +115,7 @@
             <img class="fullWH" src="~/Content/IMG/tatortreiniger-small.jpg" />
         </div>
         <div class="col-xs-6 col-sm-6 " >
-            <strong class="likeH2 text-center"><a id="test2" name="Tatortreiniger" class="underlineColor1" href="/Home/Tatortreiniger" style="word-break: break-word;">Tatortreiniger</a></strong>
+            <strong class="likeH2 text-center"><a  name="Tatortreiniger" class="underlineColor1" href="/Home/Tatortreiniger" style="word-break: break-word;">Tatortreiniger</a></strong>
             <ul>
                 <li>Leichenfundorten</li>
                 <li>natürlichem Tod</li>
@@ -121,27 +132,40 @@
 </div>
 
 <script type="text/javascript" language="javascript">
-    $(document).ready(function () {
-        var t = document.getElementById("test");
-        t.onclick = function(event)
-        {
-           
-            event.preventDefault();
-            var ss = document.getElementById("test2");
-            var tt = $("#test2").offset().top;
-            console.log("test");
-            console.info(tt);
-            $('body,html').animate({ scrollTop: tt }, 3500);
-        }
-        //$("#Entrümpelung").on("click", "a", function (event) {
-        //    alert("TestEts");
-        //    event.preventDefault();
-        //    var id = $(this).attr('href');
-        //    alert(id);
-        //    top = $(id).offset().top;
-        //   $('body,html').animate({ scrollTop: top }, 1500);
-        //})
-    })
+  function SmartScroll(event) {
+        console.log("In function");
+        event.preventDefault();
+  }
+
+  $(document).ready(function () {
+      var i,k;
+      var allAElements = document.getElementsByTagName('a');
+      for (i = 0; i <allAElements.length; i++)
+      {
+          if(allAElements[i].getAttribute("href").charAt(0)=='#')
+          {
+              var aRefName = allAElements[i].getAttribute("href").substring(1);
+              for(k=0;k<allAElements.length;k++)
+              {
+                  if(allAElements[k].getAttribute("name")==aRefName)
+                  {
+                      var elemTop = $(allAElements[k]).offset().top;
+                      console.info(elemTop);
+
+                      allAElements[i].addEventListener("click", setHandler(elemTop), false);
+                  }
+              }
+          }
+      }
+  })
+  function setHandler(elemTop) {
+      return function SmartScroll(event) {
+          event.preventDefault();
+          console.info(elemTop);
+
+          $('body,html').animate({ scrollTop: elemTop - 60 }, 1500);
+      }
+  }
 </script>
 
 @*<div class="hidden-xs">
