@@ -29,6 +29,19 @@
     z-index : 5000;
     margin-bottom: 5px;
     height: 50px;
+    width : 100%;
+    font-size:200%;
+    margin-top:20px;
+}
+
+.klassen-tel2
+{
+    /*border-bottom-width : 20px;*/
+    border-bottom-color : rebeccapurple;
+    background-color :rgba(255,0,0,1);
+    border-radius: 5px;
+    top: 0px;
+    margin-bottom: 5px;
     font-size:200%;
     margin-top:20px;
 }
