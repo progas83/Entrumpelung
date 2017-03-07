@@ -13,6 +13,12 @@ namespace Entrumpelung.Controllers
             return View();
         }
 
+        // 
+        [Route("Entrümpelung-Kosten")]
+        public ActionResult Kosten()
+        {
+            return View();
+        }
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
