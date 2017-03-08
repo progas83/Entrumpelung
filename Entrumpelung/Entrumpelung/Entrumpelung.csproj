@@ -9,7 +9,7 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{08DB7B87-4A8A-4DB3-8C82-E30E30A564D5}</ProjectGuid>
+    <ProjectGuid>{B61CA1A3-3ED4-4B95-8CE7-369B0554E94C}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -170,6 +170,29 @@
     <Content Include="Content\IMG\familyMove.jpg" />
     <Content Include="Content\IMG\haushaltsaufloesung-berlin.jpg" />
     <Content Include="Content\IMG\infoWorkers.jpg" />
+    <Content Include="Content\IMG\JunkPhoto\20170307_165125.jpg" />
+    <Content Include="Content\IMG\JunkPhoto\20170307_165130.jpg" />
+    <Content Include="Content\IMG\JunkPhoto\20170307_165143.jpg" />
+    <Content Include="Content\IMG\JunkPhoto\20170307_165148.jpg" />
+    <Content Include="Content\IMG\JunkPhoto\20170307_165310.jpg" />
+    <Content Include="Content\IMG\JunkPhoto\20170307_165318.jpg" />
+    <Content Include="Content\IMG\JunkPhoto\20170307_165323.jpg" />
+    <Content Include="Content\IMG\JunkPhoto\20170307_165333.jpg" />
+    <Content Include="Content\IMG\JunkPhoto\20170307_165341.jpg" />
+    <Content Include="Content\IMG\JunkPhoto\20170307_165348%280%29.jpg" />
+    <Content Include="Content\IMG\JunkPhoto\20170307_165348.jpg" />
+    <Content Include="Content\IMG\JunkPhoto\20170307_165352.jpg" />
+    <Content Include="Content\IMG\JunkPhoto\image-0-02-05-1526065b7d519523fedcdc8d3d7b1fa590a46fe88457bb28d57794539fe7de38-V.jpg" />
+    <Content Include="Content\IMG\JunkPhoto\image-0-02-05-19cd5b1dd7736678e1384f0e34cdf82faf3331d187798afd787515c3bd53cb69-V.jpg" />
+    <Content Include="Content\IMG\JunkPhoto\image-0-02-05-275e5cb5b1867c073a93d1850951df2d75fb17852cb291fce251de49f96cb957-V.jpg" />
+    <Content Include="Content\IMG\JunkPhoto\image-0-02-05-327ef58a2f6c76dec3145772fbf4b6b1cbea122c57bbefd618a1d1e46e2e5cae-V.jpg" />
+    <Content Include="Content\IMG\JunkPhoto\image-0-02-05-4fafb932fe3443876fc3eab1e550e41fd61949d10d11400fca4731aaf27a1781-V.jpg" />
+    <Content Include="Content\IMG\JunkPhoto\image-0-02-05-6e3c98256a55e975495aa4a8bb6b64b3cd454d2356f61ea9c1456a295d9df13e-V.jpg" />
+    <Content Include="Content\IMG\JunkPhoto\image-0-02-05-7576731591cff79f7eb6e58befdf2d7f8eba66be83d0ab8f54a1fb7b860d7072-V.jpg" />
+    <Content Include="Content\IMG\JunkPhoto\image-0-02-05-cf0e4957a6b90f2710f73db06709d57509976ef7818d3ee832d307e5828b82a9-V.jpg" />
+    <Content Include="Content\IMG\JunkPhoto\image-0-02-05-e4adc0a37aafa28588047a5ec62c6fc9bda688a7562bd1a85f7d218c5d7b376b-V.jpg" />
+    <Content Include="Content\IMG\JunkPhoto\image-0-02-05-f4eec68ebd037117341916436165358de6b7beb0909e733f21da6e5c9d17a03e-V.jpg" />
+    <Content Include="Content\IMG\KlassenGMBH.jpg" />
     <Content Include="Content\IMG\move1.jpg" />
     <Content Include="Content\IMG\move2.jpg" />
     <Content Include="Content\IMG\moveBoxes.jpg" />
@@ -197,7 +220,6 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <None Include="Properties\PublishProfiles\Klassen.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -224,7 +246,6 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Home\Kosten.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -254,9 +275,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>52975</DevelopmentServerPort>
+          <DevelopmentServerPort>53774</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:52975/</IISUrl>
+          <IISUrl>http://localhost:53774/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
