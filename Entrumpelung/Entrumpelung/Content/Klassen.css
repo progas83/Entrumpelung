@@ -7,6 +7,9 @@
     color : red; 
 }
 
+li:hover{
+    background-color : deepskyblue;
+}
 .navbar-toggle
 {
     background-color: #95C632;

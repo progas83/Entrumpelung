@@ -1,11 +1,33 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
+<div>
+    <select id="mySelect" onchange="myFunction()">
+        <option value="Audi">Audi
+        <option value="BMW">BMW
+        <option value="Mercedes">Mercedes
+        <option value="Volvo">Volvo
+    </select>
+</div>
+
+<div>
+    <input type="text" id="autoText" name="ResetButton" value="Reset" />
+    @*// data-toggle="collapse" data-target="#demo"/>*@
+    
+    <div id="demo" style="z-index:100000;">
+        <ul>
+            <li >Bremen					49-421</li>
+            <li>Frankfurt am Mein		49-69</li>
+            <li>Hamburg					49-40</li>
+        </ul>
+    </div>
+</div>
+
 
 <div>
 
     @*<strong style="font-size:200%">Entrümpelung in Berlin</strong>*@
-    <h1>Entrümpelung in Berlin</h1>
+    <h1>Entrümpelung @ViewBag.Title</h1>
     <div class="klassen-tel text-center visible-xs" style="margin-top:5px;">
         <strong>Tel:<a style="color:white;" href="tel: 0982303018">098 230 30 18</a></strong>
     </div>
@@ -15,6 +37,7 @@
             <br />
             1. Schnell  2. Sauber  3. Seriös
         </h3>
+       
     </div>
     <div>
         Es steht eine Entrümpelung an? Klassen Entrümpelung in Berlin. ☎ <a href="tel: 0982303018">098 230 30 18</a>.<br> Wir helfen Ihnen! Wir räumen auf und hinterlassen nur Sauberkeit!
@@ -131,12 +154,59 @@
 </div>
 
 <script type="text/javascript" language="javascript">
-  //function SmartScroll(event) {
-  //      console.log("In function");
-  //      event.preventDefault();
-  //}
+   
 
-  $(document).ready(function () {
+   
+   
+    $(document).ready(function () {
+        $('#demo').collapse('hide');
+        var tot = false;
+        $("#autoText").click(tot,function (event) {
+
+            console.log("Prevent default");
+            tot = !tot;
+            console.log(tot);
+          //  event.preventDefault();
+            if (tot)
+            {
+                $('#demo').collapse('show');
+            }
+            else
+            {
+                $('#demo').collapse('hide');
+            }
+            //$('#myCollapsible').collapse({
+            //    toggle: tot
+            //})
+            //        console.log("Test autoinput");
+            
+            
+
+        });
+        //$(function () {
+        //    $('input').keydown(function (e) {
+        //        console.log("TEST");
+
+        //        var t = $('#autoText').value;
+        //        console.log(t);
+        //        var tt = document.getElementById("autoText").value;
+        //        console.log(tt);
+        //        if (document.getElementById("autoText").value == '13') {
+        //            console.log("Success");
+        //            document.getElementById("autoText").value = "Test Etst";
+        //        }
+        //        else
+        //        {
+        //            console.log("Error");
+        //        }
+        //        //if (e.keyCode == 13) {
+        //        //    $("input[value='OK']").focus().click();
+        //        //    return false;
+        //        //}
+        //    });
+        //});
+
+
       var i,k;
       var allAElements = document.getElementsByTagName('a');
       for (i = 0; i <allAElements.length; i++)
@@ -157,7 +227,22 @@
           }
       }
   })
-  function setHandler(elemTop) {
+
+    function autoTextOnClick(event) {
+        console.log("Prevent default");
+        console.log(event);
+        //return function autoT(event) {
+        //    console.log("Prevent default1");
+        //    event.preventDefault();
+        //    {
+        //        $('.collapse').collapse();
+        //        console.log("Test autoinput");
+        //        console.log(event);
+        //    }
+        //}
+    }
+
+    function setHandler(elemTop) {
       return function SmartScroll(event) {
           event.preventDefault();
           console.info(elemTop);

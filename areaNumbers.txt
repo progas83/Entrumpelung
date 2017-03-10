@@ -1,0 +1,10 @@
+Bremen					49-421
+Frankfurt am Mein		49-69
+Hamburg					49-40
+Hannover				49-511
+
+Minden					49-571
+Bielefeld				49-521
+Osnabrück				49-541
+Magdeburg				49-6421
+Kassel					49-561
