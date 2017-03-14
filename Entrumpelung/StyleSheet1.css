@@ -1,0 +1,69 @@
+﻿/* ********************** GENERAL TAGS ************************ */
+body {
+    font-family:Arial;
+    line-height:1.5;
+    color:#565050;
+}
+h1 {
+    color:#015ea1;
+    font-size:24px;
+}
+h2 {
+    color:#015ea1;
+    font-size:18px;
+}
+h3 {
+    color:#565050;
+    font-size:16px;
+}
+p {
+    text-align:justify;
+}
+a {
+    color:#565050;
+}
+a:hover {
+    text-decoration-color:#ea6b48;
+    color:#565050;
+}
+/* ********************** /GENERAL TAGS ************************ */
+/* ********************** GENERAL CLASSES ************************ */
+.full-area {
+    width:100%;
+}
+.box {
+    max-width:1250px;
+}
+/* ********************** /GENERAL CLASSES ************************ */
+/* ********************** HEADER STYLE ************************** */
+.headLanguagesLine{
+    background:#015ea1;
+    height:30px;
+    width:100%;
+}
+.headLogo {
+    background:url('\Content\IMG\logo.png');
+    background-position:center;
+    background-repeat:no-repeat;
+    background-size:contain;
+    display:inline-block;
+    width:33%;
+    height:140px;
+}
+.headMiddleCol {
+    display:inline-block;
+    width:33%;
+}
+.headQuality {
+    width:220px;
+    height:85px;
+    border:10px solid #ea6b48;
+    border-radius:10px;
+    color:#ea6b48;
+}
+.headMiddleCol p {
+    font-size:22px;
+    font-weight:bolder;
+}
+
+/* ********************** /HEADER STYLE ************************** */

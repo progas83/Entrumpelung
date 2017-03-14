@@ -161,6 +161,7 @@
     <Content Include="Content\IMG\ant1.jpg" />
     <Content Include="Content\IMG\ant2.jpg" />
     <Content Include="Content\IMG\ant3.jpg" />
+    <Content Include="Content\IMG\arrows.png" />
     <Content Include="Content\IMG\boxes.jpg" />
     <Content Include="Content\IMG\boxes1.jpg" />
     <Content Include="Content\IMG\boxes3.jpg" />
@@ -168,6 +169,7 @@
     <Content Include="Content\IMG\clean2.jpg" />
     <Content Include="Content\IMG\entruempelung-berlin.jpg" />
     <Content Include="Content\IMG\familyMove.jpg" />
+    <Content Include="Content\IMG\faxIco.png" />
     <Content Include="Content\IMG\haushaltsaufloesung-berlin.jpg" />
     <Content Include="Content\IMG\infoWorkers.jpg" />
     <Content Include="Content\IMG\JunkPhoto\20170307_165125.jpg" />
@@ -193,12 +195,19 @@
     <Content Include="Content\IMG\JunkPhoto\image-0-02-05-e4adc0a37aafa28588047a5ec62c6fc9bda688a7562bd1a85f7d218c5d7b376b-V.jpg" />
     <Content Include="Content\IMG\JunkPhoto\image-0-02-05-f4eec68ebd037117341916436165358de6b7beb0909e733f21da6e5c9d17a03e-V.jpg" />
     <Content Include="Content\IMG\KlassenGMBH.jpg" />
+    <Content Include="Content\IMG\logo.png" />
     <Content Include="Content\IMG\move1.jpg" />
     <Content Include="Content\IMG\move2.jpg" />
     <Content Include="Content\IMG\moveBoxes.jpg" />
     <Content Include="Content\IMG\moveElextronic.jpg" />
     <Content Include="Content\IMG\officeMove3.jpg" />
     <Content Include="Content\IMG\officeMove4.jpg" />
+    <Content Include="Content\IMG\phoneIco.png" />
+    <Content Include="Content\IMG\service1.png" />
+    <Content Include="Content\IMG\service2.png" />
+    <Content Include="Content\IMG\service3.png" />
+    <Content Include="Content\IMG\service4.png" />
+    <Content Include="Content\IMG\service5.png" />
     <Content Include="Content\IMG\tatortreiniger-small.jpg" />
     <Content Include="Content\IMG\Werkzeuge.jpg" />
     <Content Include="Content\IMG\wohnungsaufloesung-berlin.jpg" />

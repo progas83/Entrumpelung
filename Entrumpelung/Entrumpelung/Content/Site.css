@@ -1,24 +1,375 @@
-﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+﻿/* ********************** GENERAL TAGS ************************ */
+body {
+    font-family:Arial;
+    line-height:1.5;
+    color:#565050;
+    background:#fff;
+    font-size: 17px;
+}
+h1 {
+    color: #015ea1;
+    font-size: 45px;
+    font-weight: bold;
+    text-align: center;
+}
+h2 {
+    color:#565050;
+    font-size: 25px;
+    font-weight: bold;
+    margin:10px;
+}
+h3 {
+    color:#565050;
+    font-size:16px;
+}
+p {
+    text-align:justify;
+}
+a {
+    color:#565050;
+}
+a:hover {
+    text-decoration-color:#ea6b48;
+    color:#565050;
+}
+div {
+    position:relative;
+}
+/* ********************** /GENERAL TAGS ************************ */
+/* ********************** GENERAL CLASSES ************************ */
+.full-area {
+    width:100%;
+}
+.box {
+    max-width:1250px;
+}
+.content {
+        padding-left: 1%;
+        padding-right: 1%;
 }
 
-/* Set padding to keep content from hitting the edges */
-.body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+/* ********************** /GENERAL CLASSES ************************ */
+/* ********************** HEADER STYLE ************************** */
+.headLanguagesLine{
+    background:#015ea1;
+    height:30px;
+    width:100%;
+    text-align:right;
+}
+.languages {
+    display: inline-block;
+    width: 44px;
+    height: 27px;
+    font-size: 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 2px;
+    margin: 1px;
+    color: #fff;
+    border: 1px solid #fff;
+    border-radius: 4px;
+    background-color: #015ea1;
+    text-align: center;
+}
+.languages:hover {
+    background-color:#0088ea;
+    color:#fff;
 }
 
-/* Override the default bootstrap behavior where horizontal description lists 
-   will truncate terms that are too long to fit in the left column 
-*/
-.dl-horizontal dt {
-    white-space: normal;
+.languages:active {
+    background-color:#0088ea;
+    color:#fff;
 }
 
-/* Set width on the form input elements since they're 100% wide by default */
-input,
-select,
-textarea {
-    max-width: 280px;
+.headLogo {
+    background: url(IMG/logo.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: inline-block;
+    width: 29%;
+    height: 10vw;
+    margin: 2%;
+        vertical-align:middle;
+        max-height:106px;
+        min-height:75px;
 }
+.headMiddleCol {
+    display:inline-block;
+    width:30%;
+    vertical-align:middle;
+    text-align:center;
+}
+
+.headQuality {
+    max-width: 220px;
+    height:80px;
+    margin: auto;
+    margin-top:5px;
+    border:10px solid #ea6b48;
+    border-radius:10px;
+    color:#ea6b48;
+    text-align:center;
+}
+.headQuality span {
+    display:block;
+    font-size:36px;
+    font-weight:900;
+    line-height:1;
+}
+.headQuality .desc {
+    font-size:22px;
+    display:block;
+    font-weight:900;
+    line-height:1;
+}
+.headMiddleCol p {
+    font-size:40px;
+    font-weight:bolder;
+    text-align:center;
+    margin-bottom:0;
+}
+.headPnonesBlock {
+    width:35%;
+    box-shadow:0 0 10px rgba(0,0,0,0.5);
+    border-radius:10px;
+    padding:5px;
+    color:#fff;
+    display: inline-block;
+    background-color:#ea6b48;
+    vertical-align:middle;
+}
+.headPhonesImg1 {
+    background:url('IMG/phoneIco.png');
+    width:50px;
+    height:50px;
+    background-position:center;
+    background-repeat:no-repeat;
+    background-size:contain;
+        display: inline-block;
+        vertical-align: middle;
+}
+.headPhonesImg2 {
+    background:url('IMG/faxIco.png');
+    width:50px;
+    height:50px;
+    background-position:center;
+    background-repeat:no-repeat;
+    background-size:contain;
+        display: inline-block;
+        vertical-align: middle;
+}
+.headPhonesNumbers {
+    font-weight: bolder;
+    font-size: 2.8vw;
+    margin-left: 1%;
+    display: inline-block;
+    width: calc(99% - 50px);
+    vertical-align: middle;
+    text-align:center;
+}
+.headPhonesNumbers a {color:#fff;}
+.crumbsLine {
+    color:#fff;
+    font-size:11px;
+    padding:2px;
+    text-align:left;
+    background:#565050;
+    width:100%;
+    margin-bottom:10px;
+}
+@media only screen and (max-width:700px) {
+    .headQuality {display:none;}
+    .headLogo{display: block; margin: auto; width: 100%;}
+    .headMiddleCol p{display: block; margin: auto; width: 100%;}
+    .headPnonesBlock {display: block; margin: auto; width: 90%;}
+    .headMiddleCol {display: block;width:inherit; width: 100%;}
+    .headPhonesNumbers {font-size:5vw;     width: 100%;}
+    .headPhonesImg1 {display:none;}
+    .headPhonesImg2 {display:none;}
+}
+/* ********************** /HEADER STYLE ************************** */
+
+/* ********************** FOOTER STYLE ************************** */
+.footer {
+background:#565050;
+color:#fff;
+width:100%;
+line-height:2;
+font-size:18px;
+text-align: center;
+}
+.footerBlock {
+    width:36%;
+    display:inline-block;
+    margin:auto;
+    padding:15px;
+        vertical-align: top;
+        min-width:300px;
+}
+.footerBlock:first-of-type {
+    width:25%;
+    min-width:0px;
+}
+@media only screen and (max-width:850px) {
+.footerBlock:first-of-type {
+display:none !important;
+}
+
+}
+
+
+.tablePhones td {
+    text-align:left;
+}
+.tablePhones td a{
+    color:#fff !important;
+}
+.tablePhones td:first-of-type {
+  /*  text-align:right;*/
+  padding-right:3px;
+
+} 
+/* ********************** /FOOTER STYLES ************************** */
+
+/* ********************** SERVICE BOX STYLES ************************** */
+
+.serviceWrapper {
+    display:block;
+    text-align:center;
+}
+.serviceItems {
+    display:inline-block;
+}
+.serviceItems img {
+    width: 180px;
+    height: 180px;
+    display: block;
+    margin-left: 65px;
+    margin-right: 65px;
+}
+.serviceItems a {
+    min-width:200px;
+    font-size:20px;
+    font-weight:bold;
+    display: block;
+    padding:15px;
+}
+@media only screen and (max-width:970px) {
+    .serviceItems img {
+        width: 130px;
+    height: 130px;
+    }
+}
+.serviceItems a:hover {
+    text-decoration-color:#ea6b48;
+ 
+}
+/* ********************** /SERVICE BOX STYLES ************************** */
+/* ********************** CALL BACK STYLES ************************** */
+.callBack {
+    background:#eaeff3;
+text-align:center;
+}
+.callBack .headPnonesBlock {
+    width:95%;
+}
+.CBPhonesWrapper {
+  /*  width:calc(45% - 70px);*/
+    width: 30vw;
+    display:inline-block;
+    height:401px;
+    vertical-align:top;
+    background:#eaeff3;
+}
+.CBArrow {
+    width: 133px;
+    height: 401px;
+    background: url(IMG/arrows.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    vertical-align: top;
+    display:inline-block;
+    margin-right: -5px;
+}
+@media only screen and (max-width:970px) {
+    .CBArrow {
+    display:none;
+    }
+    .CBPhonesWrapper{width:40vw;}
+}
+@media only screen and (max-width:760px) {
+    .CBPhonesWrapper {
+            display: block;
+            margin: auto;
+            width: 70%;
+            height: inherit;
+            margin-bottom: 30px;
+        }
+    .CBPhonesWrapper .headPhonesNumbers {
+            font-size: 5.5vw;
+        }
+    .CBPFormWrapper {
+            width: 70% !important;
+            display: block;
+            margin: auto;
+            height: inherit;
+        }
+}
+@media only screen and (max-width:500px) {
+        .CBPFormWrapper { width: 100% !important; }
+        .CBPFormWrapper input {width:250px !important;}
+}
+.CBPFormWrapper {
+   /* width:calc(54% - 70px);*/
+      width: 45vw;
+   
+    display:inline-block;
+    background:#ea6b48;
+        height:401px;
+        vertical-align:top;
+            text-align: left;
+            padding:20px;
+}
+.CBInputWrapper {
+    display:block;
+}
+.CBPhonesWrapper .tittle {
+    font-weight:900;
+    font-size:40px;
+    text-align:center;
+        margin-top:70px;
+}
+.CBPFormWrapper .tittle {
+    font-weight:bold;
+    font-size:30px;
+    text-align:center;
+    color:#fff;
+
+}
+.CBPFormWrapper input {
+    width:300px;
+    height:50px;
+    border-radius:10px;
+    border:1px solid #565050;
+    background:#fff;
+    color:#565050;
+    font-size:20px;
+    display:block;
+    padding:10PX;
+    margin:auto;
+    margin-bottom:25px;
+}
+
+.CBPFormWrapper .buttonSubmit {
+    height:60px;
+    border-radius:20px;
+    border:1px solid #565050;
+    background:#015ea1;
+    color:#fff;
+    font-weight:bold;
+    font-size:28px;
+}
+/* ********************** /CALL BACK STYLES ************************** */
+
+
