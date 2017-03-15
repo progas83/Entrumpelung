@@ -200,6 +200,8 @@
     <Content Include="Content\IMG\move2.jpg" />
     <Content Include="Content\IMG\moveBoxes.jpg" />
     <Content Include="Content\IMG\moveElextronic.jpg" />
+    <Content Include="Content\IMG\no-photo-work.png" />
+    <Content Include="Content\IMG\no-photo.gif" />
     <Content Include="Content\IMG\officeMove3.jpg" />
     <Content Include="Content\IMG\officeMove4.jpg" />
     <Content Include="Content\IMG\phoneIco.png" />
@@ -208,6 +210,11 @@
     <Content Include="Content\IMG\service3.png" />
     <Content Include="Content\IMG\service4.png" />
     <Content Include="Content\IMG\service5.png" />
+    <Content Include="Content\IMG\serviceBG1.jpg" />
+    <Content Include="Content\IMG\serviceBG2.jpg" />
+    <Content Include="Content\IMG\serviceBG3.jpg" />
+    <Content Include="Content\IMG\serviceBG4.jpg" />
+    <Content Include="Content\IMG\serviceBG5.jpg" />
     <Content Include="Content\IMG\tatortreiniger-small.jpg" />
     <Content Include="Content\IMG\Werkzeuge.jpg" />
     <Content Include="Content\IMG\wohnungsaufloesung-berlin.jpg" />

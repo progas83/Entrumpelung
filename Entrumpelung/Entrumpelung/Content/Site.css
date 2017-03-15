@@ -42,10 +42,13 @@ div {
 }
 .box {
     max-width:1250px;
+    text-align:center;
+    margin: auto;
 }
 .content {
         padding-left: 1%;
         padding-right: 1%;
+        text-align:left;
 }
 
 /* ********************** /GENERAL CLASSES ************************ */
@@ -371,5 +374,309 @@ text-align:center;
     font-size:28px;
 }
 /* ********************** /CALL BACK STYLES ************************** */
+/* ********************** SERVICE DETAILS STYLES ************************** */
+.SDWrapperOut {
+    background:linear-gradient(to top, #fff, #0088ea);
+}
+.SDTittleLine{
+    background:#fff;
+    height:5px;
+    margin:20px;
+    width:auto;
+    vertical-align:middle;
+    display:inline-block;
+    width:calc(40% - 180px);
+}
+@media only screen and (max-width:600px) {
+    .SDTittleLine {
+        display: none;
+    }
+    .SDTittle {
+    font-size:28px;
+    width:inherit;
+    }
+    .SDItemImg {
+    margin-left:-0.3%;
+    margin-right:-0.3%;
+    }
+}
+.SDTittle {
+    font-size:35px;
+    font-weight:bold;
+    text-transform:uppercase;
+    width:inherit;
+    vertical-align:middle;
+    display:inline-block;
+    color:#fff;
+    width:360px;
+    text-align:center;
+    margin-bottom:20px;
+    margin-top:20px;
+}
+.SDWrapper {
+    width:100%;
+    text-align:center;
+   padding:0; 
+}
+.SDItemImg{
+    display:inline-block;
+    width:33%;
+    height:580px;
+    background-position:center;
+    background-repeat:no-repeat;
+    background-size:cover;
+    vertical-align:top;
+    margin-left:-0.25%;
+    margin-right:-0.25%;
+    min-width:275px;
+}
+.SDItem{
+    display:inline-block;
+    width:100%;
+    height:580px;
+    font-size:20px;
+    padding:10px;
+    background-position:center;
+    background-repeat:no-repeat;
+    background-size:cover;
+    vertical-align:top;
+    background-color:rgba(255,255,255,0.6);
+}
+.SDImg {
+    width:150px;
+    height:150px;
+    margin:auto;
+    display:block;
+}
+.SDItemTittle {
+    display:block;
+    font-weight:bold;
+    font-size:22px;
+    text-align:center;
+    margin:auto;
+    margin-bottom:15px;
+    margin-top:15px;
+    color:#000;
+}
+.SDText {
+    margin:auto;
+    display:block;
+    text-align:left;
+    color:#000;
+    margin-bottom:15px;
+    background-color:rgba(255,255,255,0.7);
+    border-radius:10px;
+    padding-top:10px;
+    padding-bottom:10px;
+    height:330px;
+}
+.SDList {
+    color:#000;
+    list-style:none;
+    line-height:1.8;
+}
+.SDAbout {
+    border:15px solid #015ea1;
+    background:#fff;
+}
+.promoLogo {
+    background: url(IMG/logo.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: inline-block;
+    width: 90%;
+    height: 100px;
+    margin: auto;
+    vertical-align:middle;
 
+}
+.promoBox {
+    max-width: 220px;
+    height:80px;
+    margin: auto;
+    margin-top:50px;
+    border-radius:10px;
+    text-align:center;
+}
+.promoBox1 span, .promoBox2 .desc, .promoBox3 .desc {
+    display:block;
+    font-size:36px;
+    font-weight:900;
+    line-height:1;
+    text-transform:uppercase;
+}
+.promoBox1 .desc, .promoBox2 span, .promoBox3 span {
+    font-size:22px;
+    display:block;
+    font-weight:900;
+    line-height:1;
+    text-transform:uppercase;
+}
 
+.promoBox1 {
+   color:#ea6b48;
+    border:10px solid #ea6b48;
+}
+
+.promoBox2 {
+   color:#a6cf00;
+    border:10px solid #a6cf00;
+}
+.promoBox3 {
+    color:#00becf;
+    border:10px solid #00becf;
+}
+/* ********************** /SERVICE DETAILS STYLES ************************** */
+/* ********************** TURTORIALS STYLES ************************** */
+
+.turtorialsTittleLine{
+    background:#015ea1;
+    height:5px;
+    margin:20px;
+    width:auto;
+    vertical-align:middle;
+    display:inline-block;
+    width:calc(40% - 180px);
+}
+@media only screen and (max-width:600px) {
+    .turtorialsTittleLine {
+        display: none;
+    }
+    .turtorialsTittle {
+    font-size:28px;
+    width:inherit;
+    }
+}
+.turtorialsTittle {
+    font-size:35px;
+    font-weight:bold;
+    text-transform:uppercase;
+    width:inherit;
+    vertical-align:middle;
+    display:inline-block;
+    color:#015ea1;
+    width:360px;
+    text-align:center;
+    margin-bottom:20px;
+    margin-top:20px;
+}
+.turtorialsWrapper {
+    width:100%;
+    text-align:center;
+   padding:10px; 
+}
+.turtorialsItem {
+    border-radius:10px;
+    border: 1px solid #565050;
+    padding:20px;
+    width:100%;
+    background:#eaeff3;
+    margin-bottom:20px;
+}
+.turtorialsItem .avatar {
+    vertical-align:top;
+    width:180px;
+    display:inline-block;
+    border-radius:50%;
+    border: 1px solid #565050;
+    height:180px;
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+}
+.turtorialsGallery {
+    vertical-align:top;
+    width:270px;
+    display:inline-block;
+
+}
+.turtorialsGallery .works {
+    vertical-align:top;
+    width:270px;
+    display:inline-block;    
+    border-radius:10px;
+    border: 1px solid #565050;
+    height:180px;
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+    margin-bottom:5px;
+}
+.turtorialText {
+   vertical-align:top;
+   width:calc(99% - 450px);
+   display:inline-block;
+   padding-left: 15px;
+   padding-right: 15px;
+}
+.turtorialText .tittle {
+    font-size:25px;
+    font-weight:bold;
+    text-align:left;
+    color:#565050;
+    margin-bottom:15px;
+}
+.turtorialText .text {
+    font-size:18px;
+    text-align:justify;
+    color:#565050;
+}
+.turtorialsLink {
+    width:49%;
+    text-align:center;
+    min-width:300px;
+    display:inline-block;
+   margin-bottom:20px;
+}
+.turtorialsLink a {
+    font-size:25px;
+    color:#015ea1;
+    text-decoration:underline;
+ 
+}
+@media only screen and (max-width:1020px) {
+    .turtorialsItem {
+        padding:10px;
+    }
+    .turtorialsItem .avatar {
+    width:100px;
+    height:100px;
+ }
+.turtorialsGallery {
+   width:150px;
+}
+.turtorialsGallery .works {
+   width:150px;
+    height:100px;
+ }
+.turtorialText {
+   width:calc(98% - 250px);
+}
+.turtorialText .tittle {
+    font-size:20px;
+}
+.turtorialText .text {
+    font-size:14px;
+}
+}
+@media only screen and (max-width:600px) {
+    .turtorialsItem .avatar {
+    display:block;
+    margin:auto;
+ }
+.turtorialsGallery {
+    display:block;
+    margin:auto;
+    width:100%;
+}
+
+.turtorialText {
+    display:block;
+   width:100%;
+}
+.turtorialText .tittle {
+    text-align:center;
+}
+}
+/* ********************** /TURTORIALS STYLES ************************** */
