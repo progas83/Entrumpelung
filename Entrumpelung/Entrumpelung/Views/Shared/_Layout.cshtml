@@ -1,4 +1,9 @@
-﻿<!DOCTYPE html>
+﻿@{
+    string cityName = string.IsNullOrEmpty(ViewBag.City) ? string.Empty : ViewBag.City;
+    string inCityName = string.IsNullOrEmpty(cityName) ? string.Empty : " in " + cityName;
+}
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -10,6 +15,7 @@
 </head>
 
 <body>
+   
 <div class="full-area">
     <div class="headLanguagesLine">
         <div class="box headLanguagesLine">
@@ -23,7 +29,9 @@
                 <span>QUALITY</span>
                 <span class="desc">GUARANTED</span>
             </div>
-            <p>Berlin</p>
+            <p>
+            <button  onclick="OnCitySelect()" >@cityName</button>
+            </p>
         </div>
         <div class="headPnonesBlock">
             <div class="headPhonesImg1"></div><div class="headPhonesNumbers"><a href="callto:057182945878">0571. 829 45  878</a></div>
@@ -66,4 +74,5 @@
 
    
 </body>
+
 </html>

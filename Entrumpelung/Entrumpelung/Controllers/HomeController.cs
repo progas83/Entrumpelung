@@ -10,6 +10,7 @@ namespace Entrumpelung.Controllers
     {
         public ActionResult Index()
         {
+            ViewBag.City = "Test Berlin";
             return View();
         }
 

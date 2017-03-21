@@ -1,7 +1,12 @@
 ﻿<!-- ------------- 1st block SERVICES --------------- -->
+    @{
+        string cityName = string.IsNullOrEmpty(ViewBag.City) ? string.Empty : ViewBag.City;
+        string inCityName = string.IsNullOrEmpty(cityName) ? string.Empty : " in " + cityName;
+    }
+
 <div class="box content">
 
-    <h1>Entrümpelung in Berlin</h1>
+    <h1>Entrümpelung @inCityName</h1>
     <p>Fachbetrieb für Entrümpelung - Rudi Rümpel</p>
 
     <ol>
