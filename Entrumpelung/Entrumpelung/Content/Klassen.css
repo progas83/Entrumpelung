@@ -1,1 +1,19 @@
-﻿
+﻿.klassen-tel
+{
+      border-bottom-color : rebeccapurple;
+    /*background-color :rgba(255,0,0,1);*/
+    border-radius: 5px;
+    position : sticky;
+    top: 0px;
+    z-index : 90000;
+    padding : 20px;
+    /*border-bottom-width : 20px;
+  
+    margin-bottom: 5px;
+    font-size:200%;
+    margin-top:20px;*/
+}
+
+.cityChange{
+
+}

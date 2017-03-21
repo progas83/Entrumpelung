@@ -8,9 +8,16 @@ namespace Entrumpelung.Controllers
 {
     public class HomeController : Controller
     {
+        [HttpPost]
+        public void UpdateCity(string selectedCity)
+        {
+            HttpContext.Response.Cookies["City"].Value = selectedCity;
+            ViewBag.City = selectedCity;
+        }
+
         public ActionResult Index()
         {
-            ViewBag.City = "Test Berlin";
+            ViewBag.City = HttpContext.Response.Cookies["City"].Value;// "Test Berlin";
             return View();
         }
 

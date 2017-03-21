@@ -11,68 +11,159 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/Scripts/jquery-1.10.2.js")
+    @Scripts.Render("~/Scripts/bootstrap.min.js")
 </head>
 
 <body>
-   
-<div class="full-area">
-    <div class="headLanguagesLine">
-        <div class="box headLanguagesLine">
-            <a href="#" class="languages">DE</a><a href="#" class="languages">EN</a>
-        </div>
-    </div>
-    <div class="box">
-        <div class="headLogo"></div>
-        <div class="headMiddleCol">
-            <div class="headQuality">
-                <span>QUALITY</span>
-                <span class="desc">GUARANTED</span>
+
+    <div class="full-area">
+        <div class="headLanguagesLine">
+            <div class="box headLanguagesLine">
+                <a href="#" class="languages">DE</a><a href="#" class="languages">EN</a>
             </div>
-            <p>
-            <button  onclick="OnCitySelect()" >@cityName</button>
-            </p>
         </div>
-        <div class="headPnonesBlock">
-            <div class="headPhonesImg1"></div><div class="headPhonesNumbers"><a href="callto:057182945878">0571. 829 45  878</a></div>
-            <div class="headPhonesImg2"></div><div class="headPhonesNumbers"><a href="callto:057182945879">0571. 829 45  879</a></div>
+        <div class="box">
+            <div class="headLogo"></div>
+            <div class="headMiddleCol">
+                <div class="headQuality">
+                    <span>QUALITY</span>
+                    <span class="desc">GUARANTED</span>
+                </div>
+
+                @*<p>
+                    <button   data-toggle="collapse" data-target="#cities" >@cityName</button>
+                    </p>*@
+                <p>
+                    <button class="cityChange">@cityName</button>
+                </p>
+            </div>
+            <div class="headPnonesBlock">
+                <div class="headPhonesImg1"></div><div class="headPhonesNumbers"><a href="callto:057182945878">0571. 829 45  878</a></div>
+                <div class="headPhonesImg2"></div><div class="headPhonesNumbers"><a href="callto:057182945879">0571. 829 45  879</a></div>
+            </div>
+        </div>
+        <div class="crumbsLine">Home > Entermpuling in Berlin</div>
+        
+    </div>
+    <div id="cities" style="position : sticky; top: 0px;" class="klassen-tel collapse">
+        <div >
+            <div class="radio col-xs-4 col-sm-6">
+                <label><input type="radio" name="cityRadio"  class="regular-radio big-radio" />Bremen</label>
+            </div>
+            <div class="radio col-xs-4 col-sm-6">
+                <label><input type="radio" name="cityRadio"  class="regular-radio big-radio" />Frankfurt am Mein</label>
+            </div>
+            <div class="radio col-xs-4 col-sm-6">
+                <label><input type="radio" name="cityRadio"  class="regular-radio big-radio" />Hamburg</label>
+            </div>
+            <div class="radio col-xs-4 col-sm-6">
+                <label><input type="radio" name="cityRadio"  class="regular-radio big-radio" />Hannover</label>
+            </div>
+            <div class="radio col-xs-4 col-sm-6">
+                <label><input type="radio" name="cityRadio"  class="regular-radio big-radio" />Minden</label>
+            </div>
+            <div class="radio col-xs-4 col-sm-6">
+                <label><input type="radio" name="cityRadio"  class="regular-radio big-radio" />Bielefeld</label>
+            </div>
+            <div class="radio col-xs-4 col-sm-6">
+                <label><input type="radio" name="cityRadio"  class="regular-radio big-radio" />Osnabrück</label>
+            </div>
+            <div class="radio col-xs-4 col-sm-6">
+                <label><input type="radio" name="cityRadio"  class="regular-radio big-radio" />Magdeburg</label>
+            </div>
+          <div class="radio col-xs-4 col-sm-6">
+                <label><input type="radio" name="cityRadio"  class="regular-radio big-radio" />Kassel</label>
+            </div>
         </div>
     </div>
-    <div class="crumbsLine">Home > Entermpuling in Berlin</div>
-</div>
+    <div class="full-area">
 
-<div class="full-area">
+        @RenderBody()
 
-    @RenderBody()
-
-</div>
-
-<div class="full-area footer">
-    <div class="footerBlock"></div>
-    <div class="footerBlock"><p>Zur Schmiede 3 - 32423 Minden</p></div>
-    <div class="footerBlock">
-        <table class="tablePhones">
-            <tr>
-                <td>Tel:</td>
-                <td><a href="callto:057182945878">0571. 829 45 878</a></td>
-            </tr>
-            <tr>
-                <td>Fax:</td>
-                <td>
-                    <a href="callto:057182945879">0571. 829 45 879</a>
-                </td>
-            </tr>
-            <tr>
-                <td>E-mail:</td>
-                <td>
-                    <a href="mailto:pk@klassen-gmbh.de">pk@klassen-gmbh.de</a>
-                </td>
-            </tr>
-         </table>
     </div>
-</div>
 
-   
+    <div class="full-area footer">
+        <div class="footerBlock"></div>
+        <div class="footerBlock"><p>Zur Schmiede 3 - 32423 Minden</p></div>
+        <div class="footerBlock">
+            <table class="tablePhones">
+                <tr>
+                    <td>Tel:</td>
+                    <td><a href="callto:057182945878">0571. 829 45 878</a></td>
+                </tr>
+                <tr>
+                    <td>Fax:</td>
+                    <td>
+                        <a href="callto:057182945879">0571. 829 45 879</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>E-mail:</td>
+                    <td>
+                        <a href="mailto:pk@klassen-gmbh.de">pk@klassen-gmbh.de</a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <script>
+
+        $(document).ready(
+            function () {
+                $(".cityChange").click(
+                    function () {
+                        $(".klassen-tel").collapse('toggle');
+                    }
+                    );
+                var i;
+                var cityRadioElements = document.getElementsByName("cityRadio");
+                for(i=0;i<cityRadioElements.length;i++)
+                {
+                   (function(i) {
+
+                        return function () {
+                            cityRadioElements[i].addEventListener("click", function () {
+                             //   var selectedCity = cityRadioElements[i].parentElement.lastChild;
+                                $.ajax({
+                                    url: '@Url.Action("UpdateCity")',
+                                    
+                                    data: { selectedCity: cityRadioElements[i].parentElement.lastChild },
+                                    dataType: 'json',
+                                    
+                                    type: 'POST',
+                                    enctype: 'json',
+                                    success: function (data) {
+                                        console.log("JSON TEST");
+                                    },
+                                    async: true,
+                                    processData: false
+                                    
+                                });
+
+
+                                console.log(cityRadioElements[i].parentElement.lastChild);
+                           
+                                                
+      //  (((, "", new AjaxOptions { HttpMethod = "Post" });
+                             //   console.log(i);
+                               // console.log(cityRadioElements[i]);
+                            //    console.log(cityRadioElements[i].parentElement.lastChild);
+
+                            });
+                        }(i)
+                    }(i));
+                    
+                }
+            }
+            );
+        function Write(e)
+        {
+            console.log(e);
+        }
+    </script>
 </body>
 
 </html>
