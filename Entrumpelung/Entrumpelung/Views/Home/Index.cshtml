@@ -1,8 +1,8 @@
 ﻿<!-- ------------- 1st block SERVICES --------------- -->
-    @{
-        string cityName = string.IsNullOrEmpty(ViewBag.City) ? string.Empty : ViewBag.City;
-        string inCityName = string.IsNullOrEmpty(cityName) ? string.Empty : " in " + cityName;
-    }
+  @{
+      string cityName = string.IsNullOrEmpty(ViewBag.City) ? "wählen Sie die Stadt" : ViewBag.City;
+      string inCityName = cityName.Equals("wählen Sie die Stadt") ? string.Empty : " in " + "<span class='currentCity'>@ cityName</span>";
+}
 
 <div class="box content">
 
@@ -46,14 +46,15 @@
 </div>
 <!-- ------------- /1st block SERVICES --------------- -->
 <!-- ------------- 2nd block CALLBACK --------------- -->
-<div class="full-area callBack">
+<div class="full-area callBack" style="position : sticky;
+top: 5px; z-index:40000;">
     <div class="CBPhonesWrapper">
        <p class="tittle">
            <button class="cityChange">@cityName</button>
         </p>
         <div class="headPnonesBlock">
-            <div class="headPhonesImg1"></div><div class="headPhonesNumbers"><a href="callto:057182945878">0571. 829 45  878</a></div>
-            <div class="headPhonesImg2"></div><div class="headPhonesNumbers"><a href="callto:057182945879">0571. 829 45  879</a></div>
+            <div class="headPhonesImg1"></div><div class="headPhonesNumbers"><a class="cityTel" href="callto:057182945878">0571. 829 45  878</a></div>
+            <div class="headPhonesImg2"></div><div class="headPhonesNumbers"><a class="cityTel" href="callto:057182945879">0571. 829 45  879</a></div>
         </div>
     </div>
     <div class="CBArrow"></div>

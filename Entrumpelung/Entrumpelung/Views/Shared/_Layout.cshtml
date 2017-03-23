@@ -1,6 +1,6 @@
 ﻿@{
-    string cityName = string.IsNullOrEmpty(ViewBag.City) ? string.Empty : ViewBag.City;
-    string inCityName = string.IsNullOrEmpty(cityName) ? string.Empty : " in " + cityName;
+    string cityName = string.IsNullOrEmpty(ViewBag.City) ? "wählen Sie die Stadt" : ViewBag.City;
+    string inCityName = cityName.Equals("wählen Sie die Stadt") ? string.Empty : " in " + "<span class='currentCity'>@ cityName</span>";
 }
 
 <!DOCTYPE html>
@@ -8,7 +8,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>Klassen Entrümpelung + @inCityName </title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/jquery")
@@ -40,41 +40,41 @@
                 </p>
             </div>
             <div class="headPnonesBlock">
-                <div class="headPhonesImg1"></div><div class="headPhonesNumbers"><a href="callto:057182945878">0571. 829 45  878</a></div>
-                <div class="headPhonesImg2"></div><div class="headPhonesNumbers"><a href="callto:057182945879">0571. 829 45  879</a></div>
+                <div class="headPhonesImg1"></div><div class="headPhonesNumbers"><a class="cityTel" href="callto:057182945878">0571. 829 45  878</a></div>
+                <div class="headPhonesImg2"></div><div class="headPhonesNumbers"><a class="cityTel" href="callto:057182945879">0571. 829 45  879</a></div>
             </div>
         </div>
         <div class="crumbsLine">Home > Entermpuling in Berlin</div>
         
     </div>
-    <div id="cities" style="position : sticky; top: 0px;" class="klassen-tel collapse">
+    <div class="klassen-tel collapse">
         <div >
             <div class="radio col-xs-4 col-sm-6">
-                <label><input type="radio" name="cityRadio"  class="regular-radio big-radio" />Bremen</label>
+                <label><input type="radio" name="cityRadio"  />Bremen</label>
             </div>
             <div class="radio col-xs-4 col-sm-6">
-                <label><input type="radio" name="cityRadio"  class="regular-radio big-radio" />Frankfurt am Mein</label>
+                <label><input type="radio" name="cityRadio"  />Frankfurt am Mein</label>
             </div>
             <div class="radio col-xs-4 col-sm-6">
-                <label><input type="radio" name="cityRadio"  class="regular-radio big-radio" />Hamburg</label>
+                <label><input type="radio" name="cityRadio"  />Hamburg</label>
             </div>
             <div class="radio col-xs-4 col-sm-6">
-                <label><input type="radio" name="cityRadio"  class="regular-radio big-radio" />Hannover</label>
+                <label><input type="radio" name="cityRadio"  />Hannover</label>
             </div>
             <div class="radio col-xs-4 col-sm-6">
-                <label><input type="radio" name="cityRadio"  class="regular-radio big-radio" />Minden</label>
+                <label><input type="radio" name="cityRadio"  />Minden</label>
             </div>
             <div class="radio col-xs-4 col-sm-6">
-                <label><input type="radio" name="cityRadio"  class="regular-radio big-radio" />Bielefeld</label>
+                <label><input type="radio" name="cityRadio"  />Bielefeld</label>
             </div>
             <div class="radio col-xs-4 col-sm-6">
-                <label><input type="radio" name="cityRadio"  class="regular-radio big-radio" />Osnabrück</label>
+                <label><input type="radio" name="cityRadio"  />Osnabrück</label>
             </div>
             <div class="radio col-xs-4 col-sm-6">
-                <label><input type="radio" name="cityRadio"  class="regular-radio big-radio" />Magdeburg</label>
+                <label><input type="radio" name="cityRadio"  />Magdeburg</label>
             </div>
           <div class="radio col-xs-4 col-sm-6">
-                <label><input type="radio" name="cityRadio"  class="regular-radio big-radio" />Kassel</label>
+                <label><input type="radio" name="cityRadio"  />Kassel</label>
             </div>
         </div>
     </div>
@@ -91,12 +91,12 @@
             <table class="tablePhones">
                 <tr>
                     <td>Tel:</td>
-                    <td><a href="callto:057182945878">0571. 829 45 878</a></td>
+                    <td><a class="cityTel" href="callto:057182945878">0571. 829 45 878</a></td>
                 </tr>
                 <tr>
                     <td>Fax:</td>
                     <td>
-                        <a href="callto:057182945879">0571. 829 45 879</a>
+                        <a class="cityTel" href="callto:057182945879">0571. 829 45 879</a>
                     </td>
                 </tr>
                 <tr>
@@ -110,9 +110,20 @@
     </div>
 
     <script>
+        function SetupTelephoneNumbers(selectedTelephon) {
+            $('.cityTel').text(selectedTelephon);
+            $('.cityTel').attr("href", 'callto:' + selectedTelephon);
+            console.log(selectedTelephon);
+        }
 
+        function SetupCurrentCity(currentCity) {
+
+        }
         $(document).ready(
+          
             function () {
+
+              
                 $(".cityChange").click(
                     function () {
                         $(".klassen-tel").collapse('toggle');
@@ -126,25 +137,31 @@
 
                         return function () {
                             cityRadioElements[i].addEventListener("click", function () {
-                             //   var selectedCity = cityRadioElements[i].parentElement.lastChild;
+                                var selectedCityUrl = '@Url.Action("UpdateCity")' + '?selectedCity=' + cityRadioElements[i].parentElement.lastChild.nodeValue;
+                              //  console.log(selectedCityUrl);
                                 $.ajax({
-                                    url: '@Url.Action("UpdateCity")',
+                                    url: selectedCityUrl ,
                                     
-                                    data: { selectedCity: cityRadioElements[i].parentElement.lastChild },
-                                    dataType: 'json',
+                                   // data: { selectedCity: cityRadioElements[i].parentElement.lastChild },
+                                   // dataType: 'text json',
+                                    contentType: "application/json; charset=utf-8",
+                                    type: 'GET',
                                     
-                                    type: 'POST',
-                                    enctype: 'json',
                                     success: function (data) {
-                                        console.log("JSON TEST");
+                                        SetupTelephoneNumbers(data);
+                                    },
+                                    error: function(err)
+                                    {
+                                        console.log(err);
+                                        console.log("Error with city");
                                     },
                                     async: true,
                                     processData: false
                                     
                                 });
 
-
-                                console.log(cityRadioElements[i].parentElement.lastChild);
+                                $(".klassen-tel").collapse('hide');
+                               // console.log(cityRadioElements[i].parentElement.lastChild);
                            
                                                 
       //  (((, "", new AjaxOptions { HttpMethod = "Post" });
@@ -159,10 +176,7 @@
                 }
             }
             );
-        function Write(e)
-        {
-            console.log(e);
-        }
+       
     </script>
 </body>
 
