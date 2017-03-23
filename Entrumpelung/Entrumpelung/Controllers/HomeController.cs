@@ -6,17 +6,24 @@ using System.Web.Mvc;
 
 namespace Entrumpelung.Controllers
 {
+    [UserID]
     public class HomeController : Controller
     {
+        public HomeController()
+        {
+          //  HttpContext.Response.Cookies["UserID"].Value = Guid.NewGuid().ToString();
+        }
         [HttpPost]
         public void UpdateCity(string selectedCity)
         {
+            var res = HttpContext.Response.Cookies["UserID"].Value;
             HttpContext.Response.Cookies["City"].Value = selectedCity;
             ViewBag.City = selectedCity;
         }
 
         public ActionResult Index()
         {
+            var res = HttpContext.Response.Cookies["UserID"].Value;
             ViewBag.City = HttpContext.Response.Cookies["City"].Value;// "Test Berlin";
             return View();
         }
