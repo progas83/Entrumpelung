@@ -39,6 +39,7 @@ div {
 /* ********************** GENERAL CLASSES ************************ */
 .full-area {
     width:100%;
+
 }
 .box {
     max-width:1250px;
@@ -431,9 +432,7 @@ text-align:center;
     margin-right:-0.25%;
     min-width:275px;
 }
-.SDItemImg:hover{
-    border-color:red;
-}
+
 .SDItem{
     display:inline-block;
     width:100%;
