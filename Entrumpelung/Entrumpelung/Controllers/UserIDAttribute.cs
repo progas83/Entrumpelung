@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Entrumpelung.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,14 +11,51 @@ namespace Entrumpelung.Controllers
     {
         public override void OnActionExecuted(ActionExecutedContext filterContext)
         {
-           // var res = filterContext.HttpContext.Response.Cookies["UserID"].Value = Guid.NewGuid().ToString();
-            
+
+            //if()
+            // var res = filterContext.HttpContext.Response.Cookies["UserID"].Value = Guid.NewGuid().ToString();
+
         }
 
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
-           // base.OnActionExecuting(filterContext);
-          //  var res = filterContext.HttpContext.Response.Cookies["UserID"].Value = Guid.NewGuid().ToString();
+            // base.OnActionExecuting(filterContext);
+            //  var res = filterContext.HttpContext.Response.Cookies["UserID"].Value = Guid.NewGuid().ToString();
+            if (string.IsNullOrEmpty(filterContext.HttpContext.Response.Cookies["UserID"].Value))
+            {
+                Guid createdID = Guid.NewGuid();
+
+
+                using (var con = new InfoContext())
+                {
+                    User user = new User() { UnicIdentic = createdID.ToString() };
+                    con.Users.Add(user);
+                    con.SaveChanges();
+                    SetupCityUserCookies(user.UnicIdentic, filterContext, con);
+                }
+            }
+        }
+
+        private void SetupCityUserCookies(string userGuid, ActionExecutingContext filterContext, InfoContext con)
+        {
+            User user = con.Users.Where(u => u.UnicIdentic.Equals(userGuid)).FirstOrDefault();
+            if (user != null)
+            {
+                string cityName = string.IsNullOrEmpty(user.City) ? "Default City" : user.City;
+                City city = con.Cities.Where(c => c.CityName.Equals(cityName)).FirstOrDefault();
+                SetupCookies(city, filterContext);
+            }
+        }
+
+        private void SetupCookies(City city, ActionExecutingContext filterContext)
+        {
+            HttpCookie cookie = new HttpCookie("City", city != null ? city.CityName : "Default City");
+            cookie.Expires = DateTime.Now.AddDays(30);
+            filterContext.HttpContext.Response.Cookies.Add(cookie);
+
+            cookie = new HttpCookie("Tel1", city != null ? city.CityTel1 : "00000000000000");
+            cookie.Expires = DateTime.Now.AddDays(30);
+            filterContext.HttpContext.Response.Cookies.Add(cookie);
         }
     }
 }

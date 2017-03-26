@@ -1,12 +1,17 @@
 ﻿<!-- ------------- 1st block SERVICES --------------- -->
-  @{
-      string cityName = string.IsNullOrEmpty(ViewBag.City) ? "wählen Sie die Stadt" : ViewBag.City;
-      string inCityName = cityName.Equals("wählen Sie die Stadt") ? string.Empty : " in " + "<span class='currentCity'>@ cityName</span>";
+ @{
+     string cityName = "Minden";
+     if (Request.Cookies["City"] != null)
+     {
+         cityName = Request.Cookies["City"].Value;
+     }
+     string sityNameWrapper = "<span class='currentCity'>"+@cityName+"</span>";
+     string inCityName = " in " + @sityNameWrapper;
 }
 
 <div class="box content">
 
-    <h1>Entrümpelung @inCityName</h1>
+    <h1>Entrümpelung @Html.Raw(@inCityName) </h1>
     <p>Fachbetrieb für Entrümpelung - Rudi Rümpel</p>
 
     <ol>
@@ -16,7 +21,7 @@
     </ol>
     <h3>Es steht eine Entrümpelung an?</h3>
     <p>
-        Rudi Rümpel, Entrümpelung in Berlin. Wir helfen Ihnen! Wir räumen auf und hinterlassen nur Sauberkeit!
+        Rudi Rümpel, Entrümpelung @Html.Raw(@inCityName). Wir helfen Ihnen! Wir räumen auf und hinterlassen nur Sauberkeit!
     </p>
     <h2>Wir beschäftigen uns mit:</h2>
 
@@ -50,11 +55,11 @@
 top: 5px; z-index:40000;">
     <div class="CBPhonesWrapper">
        <p class="tittle">
-           <button class="cityChange">@cityName</button>
+           <button class="cityChange">@Html.Raw(@sityNameWrapper)</button>
         </p>
         <div class="headPnonesBlock">
             <div class="headPhonesImg1"></div><div class="headPhonesNumbers"><a class="cityTel" href="callto:057182945878">0571. 829 45  878</a></div>
-            <div class="headPhonesImg2"></div><div class="headPhonesNumbers"><a class="cityTel" href="callto:057182945879">0571. 829 45  879</a></div>
+            <div class="headPhonesImg2"></div><div class="headPhonesNumbers"><a class="cityFax" href="callto:057182945879">0571. 829 45  879</a></div>
         </div>
     </div>
     <div class="CBArrow"></div>
