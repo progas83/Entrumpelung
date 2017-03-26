@@ -1,12 +1,24 @@
 ﻿<!-- ------------- 1st block SERVICES --------------- -->
- @{
-     string cityName = "Minden";
-     if (Request.Cookies["City"] != null)
-     {
-         cityName = Request.Cookies["City"].Value;
-     }
-     string sityNameWrapper = "<span class='currentCity'>"+@cityName+"</span>";
-     string inCityName = " in " + @sityNameWrapper;
+@{
+    string cityName = "Minden";
+    string fullTel1Number = "0571. 829 45 878";
+    string tel1 = "";
+    string cityCode = "";
+    if (Request.Cookies["City"] != null)
+    {
+        cityName = Request.Cookies["City"].Value;
+    }
+
+
+    if (Request.Cookies["Tel1"] != null && Request.Cookies["CityCode"] != null)
+    {
+        tel1 = Request.Cookies["Tel1"].Value;
+        cityCode = Request.Cookies["CityCode"].Value;
+
+    }
+    fullTel1Number = string.Format("{0}. {1}", cityCode, tel1);
+    string sityNameWrapper = "<span class='currentCity'>" + @cityName + "</span>";
+    string inCityName = " in " + @sityNameWrapper;
 }
 
 <div class="box content">
@@ -58,7 +70,7 @@ top: 5px; z-index:40000;">
            <button class="cityChange">@Html.Raw(@sityNameWrapper)</button>
         </p>
         <div class="headPnonesBlock">
-            <div class="headPhonesImg1"></div><div class="headPhonesNumbers"><a class="cityTel" href="callto:057182945878">0571. 829 45  878</a></div>
+            <div class="headPhonesImg1"></div><div class="headPhonesNumbers"><a class="cityTel" href="callto:@cityCode@tel1">@fullTel1Number</a></div>
             <div class="headPhonesImg2"></div><div class="headPhonesNumbers"><a class="cityFax" href="callto:057182945879">0571. 829 45  879</a></div>
         </div>
     </div>
