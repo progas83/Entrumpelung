@@ -222,6 +222,70 @@ color:#fff;
     border-color:#fff;
 }
 /* ********************** /STICKY BLOCK STYLES ************************ */
+/* ********************** QUESTION BLOCK STYLES ************************ */
+#question {
+    width:250px;
+    position:absolute;
+    top:-150px;
+    left: calc(50% - 125px);
+        z-index: 999;
+        transition:1.3s;
+
+}
+.questionBox {
+    background-color:#ea6b48;
+    border-radius:8px;
+    color:#fff;
+    padding:5px;
+    opacity:0.9;
+}
+.questionBox {
+	position: relative;
+	background: #ea6b48;
+	border: 4px solid #565050;
+}
+.questionBox:after, .questionBox:before {
+	top: 100%;
+	left: 50%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+}
+
+.questionBox:after {
+	border-color: rgba(234, 107, 72, 0);
+	border-top-color: #ea6b48;
+	border-width: 30px;
+	margin-left: -30px;
+}
+.questionBox:before {
+	border-color: rgba(86, 80, 80, 0);
+	border-top-color: #565050;
+	border-width: 36px;
+	margin-left: -36px;
+}
+.questionBox p{
+   font-size:23px;
+   font-weight:bold;
+   text-align:center;
+   margin-bottom:0;
+}
+.questionBox p a {
+    color:#fff !important;
+    text-decoration:none;
+    margin-left:15px;
+    margin-right:15px;
+    font-size:28px;
+    cursor:pointer;
+}
+.questionBox p a:hover, .questionBox p a:focus {
+        color:#fff !important;
+        text-decoration:underline;
+}
+/* ********************** /QUESTION BLOCK STYLES ************************ */
 /* ********************** HEADER STYLE ************************** */
 .headLanguagesLine{
     background:#015ea1;

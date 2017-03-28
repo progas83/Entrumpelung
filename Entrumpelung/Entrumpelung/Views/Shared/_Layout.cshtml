@@ -34,6 +34,7 @@
 </head>
 
 <body>
+    <div id="question"><div class="questionBox"><p>Dies ist Ihre Stadt?</p><p><a onclick="closeQuestion()">Ja</a><a href="#city" onclick="closeQuestion()">Nein</a></p></div><div class="questioArrow"></div></div>
     <div id="callTop">
         <div class="box">
             <div class="callTopPhonesWrapper">
@@ -230,6 +231,10 @@
                 document.getElementById('callTop').setAttribute('style','margin-top:-65px;');
             }
         }
+
+        window.onload = function () {document.getElementById('question').setAttribute('style','top:7px;'); }
+        function closeQuestion() {document.getElementById('question').setAttribute('style','top:-150px;');}
+
     </script>
 
 </body>
