@@ -63,26 +63,27 @@
 </div>
 <!-- ------------- /1st block SERVICES --------------- -->
 <!-- ------------- 2nd block CALLBACK --------------- -->
-<div class="full-area callBack" style="position : sticky;
-top: 5px; z-index:40000;">
-    <div class="CBPhonesWrapper">
-       <p class="tittle">
-           <button class="cityChange">@Html.Raw(@sityNameWrapper)</button>
-        </p>
-        <div class="headPnonesBlock">
-            <div class="headPhonesImg1"></div><div class="headPhonesNumbers"><a class="cityTel" href="callto:@cityCode@tel1">@fullTel1Number</a></div>
-            <div class="headPhonesImg2"></div><div class="headPhonesNumbers"><a class="cityFax" href="callto:057182945879">0571. 829 45  879</a></div>
+<div class="full-area callBack">
+    <div class="box">
+        <div class="CBPhonesWrapper">
+            <p class="tittle">
+                <a class="cityChange" href="#city">@Html.Raw(@sityNameWrapper)</a>
+            </p>
+            <div class="headPnonesBlock">
+                <div class="headPhonesImg1"></div><div class="headPhonesNumbers"><a class="cityTel" href="callto:@cityCode@tel1">@fullTel1Number</a></div>
+                <div class="headPhonesImg2"></div><div class="headPhonesNumbers"><a class="cityFax" href="callto:057182945879">0571. 829 45  879</a></div>
+            </div>
         </div>
-    </div>
-    <div class="CBArrow"></div>
-    <div class="CBPFormWrapper">
+        <div class="CBArrow"></div>
+        <div class="CBPFormWrapper">
 
-        <div class="CBInputWrapper">
-            <p class="tittle">Noch Fragen?</p>
-            <p class="tittle">Wir rufen Sie zurück!</p>
-            <input placeholder="Name" />
-            <input placeholder="Telefon*" />
-            <input class="buttonSubmit" type="submit" value="Rückruf">
+            <div class="CBInputWrapper">
+                <p class="tittle">Noch Fragen?</p>
+                <p class="tittle">Wir rufen Sie zurück!</p>
+                <input placeholder="Name" />
+                <input placeholder="Telefon*" />
+                <input class="buttonSubmit" type="submit" value="Rückruf">
+            </div>
         </div>
     </div>
 </div>

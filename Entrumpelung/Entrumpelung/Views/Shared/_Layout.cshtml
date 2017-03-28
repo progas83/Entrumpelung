@@ -34,7 +34,22 @@
 </head>
 
 <body>
-
+    <div id="callTop">
+        <div class="box">
+            <div class="callTopPhonesWrapper">
+                <div class="numberWrapper"><div class="callTopPhone"></div><a class="callTopNum" href="callto:@cityCode@tel1">@fullTel1Number</a>
+                </div>
+                <div class="numberWrapper">
+                    <div class="callTopFax"></div><a class="callTopNum" href="callto:057182945879">0571. 829 45  879</a>
+                </div>
+            </div>
+            <div class="callTopCallBackWrapper">
+                <input placeholder="Name" />
+                <input placeholder="Telefon*" />
+                <input class="buttonSubmit" type="submit" value="Rückruf">
+            </div>
+        </div>
+    </div>
     <div class="full-area">
         <div class="headLanguagesLine">
             <div class="box headLanguagesLine">
@@ -49,7 +64,7 @@
                     <span class="desc">GUARANTED</span>
                 </div>
                 <p>
-                    <button class="cityChange">@Html.Raw(@sityNameWrapper)</button>
+                    <a class="cityChange" href="#city">@Html.Raw(@sityNameWrapper)</a>
                 </p>
             </div>
             <div class="headPnonesBlock">
@@ -57,39 +72,45 @@
                 <div class="headPhonesImg2"></div><div class="headPhonesNumbers"><a class="cityFax" href="callto:057182945879">0571. 829 45  879</a></div>
             </div>
         </div>
-        <div class="crumbsLine">Home > Entermpuling @Html.Raw(@inCityName) </div>
+        <div class="crumbsLine"><div class="box">Home > Entermpuling @Html.Raw(@inCityName)</div></div>
         
     </div>
-    <div class="klassen-tel collapse">
-        <div >
-            <div class="radio col-xs-4 col-sm-6">
-                <label><input type="radio" name="cityRadio"  />Bremen</label>
+
+
+    <a href="#x" class="overlay" id="city"></a>
+    <div class="popup">
+        <span class="popupTittle">Wählen Sie Ihre Stadt</span>
+        <div class="radioBox">
+            <div class="radio">
+                <label><input type="radio" name="cityRadio" />Bremen</label>
             </div>
-            <div class="radio col-xs-4 col-sm-6">
-                <label><input type="radio" name="cityRadio"  />Frankfurt am Mein</label>
+            <div class="radio">
+                <label><input type="radio" name="cityRadio" />Frankfurt am Mein</label>
             </div>
-            <div class="radio col-xs-4 col-sm-6">
-                <label><input type="radio" name="cityRadio"  />Hamburg</label>
+            <div class="radio">
+                <label><input type="radio" name="cityRadio" />Hamburg</label>
             </div>
-            <div class="radio col-xs-4 col-sm-6">
-                <label><input type="radio" name="cityRadio"  />Hannover</label>
+            <div class="radio">
+                <label><input type="radio" name="cityRadio" />Hannover</label>
             </div>
-            <div class="radio col-xs-4 col-sm-6">
-                <label><input type="radio" name="cityRadio"  />Minden</label>
+            <div class="radio">
+                <label><input type="radio" name="cityRadio" />Minden</label>
             </div>
-            <div class="radio col-xs-4 col-sm-6">
-                <label><input type="radio" name="cityRadio"  />Bielefeld</label>
+            <div class="radio">
+                <label><input type="radio" name="cityRadio" />Bielefeld</label>
             </div>
-            <div class="radio col-xs-4 col-sm-6">
-                <label><input type="radio" name="cityRadio"  />Osnabrück</label>
+            <div class="radio">
+                <label><input type="radio" name="cityRadio" />Osnabrück</label>
             </div>
-            <div class="radio col-xs-4 col-sm-6">
-                <label><input type="radio" name="cityRadio"  />Magdeburg</label>
+            <div class="radio">
+                <label><input type="radio" name="cityRadio" />Magdeburg</label>
             </div>
-          <div class="radio col-xs-4 col-sm-6">
-                <label><input type="radio" name="cityRadio"  />Kassel</label>
+            <div class="radio">
+                <label><input type="radio" name="cityRadio" />Kassel</label>
             </div>
         </div>
+            <a class="close" title="Закрыть" href="#close"></a>
+    <a href="#x" class="chooseCityLink">Wählen</a>    
     </div>
     <div class="full-area">
 
@@ -98,27 +119,29 @@
     </div>
 
     <div class="full-area footer">
-        <div class="footerBlock"></div>
-        <div class="footerBlock"><p>Zur Schmiede 3 - 32423 Minden</p></div>
-        <div class="footerBlock">
-            <table class="tablePhones">
-                <tr>
-                    <td>Tel:</td>
-                    <td><a href="callto:057182945878">0571. 829 45 878</a></td>
-                </tr>
-                <tr>
-                    <td>Fax:</td>
-                    <td>
-                        <a href="callto:057182945879">0571. 829 45 879</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>E-mail:</td>
-                    <td>
-                        <a href="mailto:pk@klassen-gmbh.de">pk@klassen-gmbh.de</a>
-                    </td>
-                </tr>
-            </table>
+        <div class="box">
+            <div class="footerBlock"></div>
+            <div class="footerBlock"><p>Zur Schmiede 3 - 32423 Minden</p></div>
+            <div class="footerBlock">
+                <table class="tablePhones">
+                    <tr>
+                        <td>Tel:</td>
+                        <td><a href="callto:057182945878">0571. 829 45 878</a></td>
+                    </tr>
+                    <tr>
+                        <td>Fax:</td>
+                        <td>
+                            <a href="callto:057182945879">0571. 829 45 879</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>E-mail:</td>
+                        <td>
+                            <a href="mailto:pk@klassen-gmbh.de">pk@klassen-gmbh.de</a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
         </div>
     </div>
 
@@ -146,9 +169,10 @@
 
               
                 $(".cityChange").click(
-                    function () {
+                    /*function () {
                         $(".klassen-tel").collapse('toggle');
-                    }
+                    */
+                }
                     );
                 var i;
                 var cityRadioElements = document.getElementsByName("cityRadio");
@@ -189,6 +213,25 @@
             );
        
     </script>
+
+    <script>
+        
+        var callTopFlag = false;
+        window.onscroll = function() {
+            
+            if(window.pageYOffset>210 && callTopFlag==false)
+            {
+                callTopFlag=true;
+                document.getElementById('callTop').setAttribute('style','margin-top:0;');
+            }
+            if(window.pageYOffset<205 && callTopFlag==true)
+            {
+                callTopFlag=false;
+                document.getElementById('callTop').setAttribute('style','margin-top:-65px;');
+            }
+        }
+    </script>
+
 </body>
 
 </html>
