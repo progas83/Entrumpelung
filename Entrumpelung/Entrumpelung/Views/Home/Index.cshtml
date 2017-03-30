@@ -6,7 +6,7 @@
     string cityCode = "";
     if (Request.Cookies["City"] != null)
     {
-        cityName = Request.Cookies["City"].Value;
+        cityName = Server.UrlDecode(Request.Cookies["City"].Value);
     }
 
 
@@ -44,19 +44,19 @@
         </div>
         <div class="serviceItems">
             <img src="~/Content/IMG/service2.png" />
-            <a href="">Haushaltsauflösung</a>
+            <a href="/Haushaltsauflosung">Haushaltsauflösung</a>
         </div>
         <div class="serviceItems">
             <img src="~/Content/IMG/service3.png" />
-            <a href="">Wohnungsauflösung</a>
+            <a href="/Wohnungsauflosung">Wohnungsauflösung</a>
         </div>
         <div class="serviceItems">
             <img src="~/Content/IMG/service4.png" />
-            <a href="">Wohnungsräumung</a>
+            <a href="/Wohnungsraumung">Wohnungsräumung</a>
         </div>
         <div class="serviceItems">
             <img src="~/Content/IMG/service5.png" />
-            <a href="">Tatortreiniger</a>
+            <a href="/Tatortreiniger">Tatortreiniger</a>
         </div>
     </div>
 
@@ -70,8 +70,8 @@
                 <a class="cityChange" href="#city">@Html.Raw(@sityNameWrapper)</a>
             </p>
             <div class="headPnonesBlock">
-                <div class="headPhonesImg1"></div><div class="headPhonesNumbers"><a class="cityTel" href="callto:@cityCode@tel1">@fullTel1Number</a></div>
-                <div class="headPhonesImg2"></div><div class="headPhonesNumbers"><a class="cityFax" href="callto:057182945879">0571. 829 45  879</a></div>
+                <div class="headPhonesImg1"></div><div class="headPhonesNumbers"><a class="cityTel" href="tel:@cityCode@tel1">@fullTel1Number</a></div>
+                <div class="headPhonesImg2"></div><div class="headPhonesNumbers"><a class="cityFax" href="tel:057182945879">0571. 829 45  879</a></div>
             </div>
         </div>
         <div class="CBArrow"></div>
@@ -80,9 +80,14 @@
             <div class="CBInputWrapper">
                 <p class="tittle">Noch Fragen?</p>
                 <p class="tittle">Wir rufen Sie zurück!</p>
-                <input placeholder="Name" />
-                <input placeholder="Telefon*" />
-                <input class="buttonSubmit" type="submit" value="Rückruf">
+                <div id="divEmp">
+                    @using (Ajax.BeginForm("CallBackOrder", new AjaxOptions { HttpMethod = "POST", UpdateTargetId="divEmp", InsertionMode = InsertionMode.Replace}))
+                    {
+                        <input name="name" placeholder="Name" />
+                        <input name="telephone" placeholder="Telefon*" />
+                        <input class="buttonSubmit" type="submit" value="Rückruf">
+                    }
+                </div>
             </div>
         </div>
     </div>
@@ -112,7 +117,7 @@
                 </div>
             </div>
 
-            <div class="SDItemImg" style="background:url('/Content/IMG/serviceBG2.jpg');" onclick="Redirect('Haushaltsauflosung')">
+            <div class="SDItemImg" style="background:url('/Content/IMG/serviceBG2.jpg');" onclick="window.location.href='/Haushaltsauflosung'">
                 <div class="SDItem">
                     <img src="~/Content/IMG/service2.png" class="SDImg" />
                     <div class="SDItemTittle">Haushaltsauflösung</div>
@@ -128,7 +133,7 @@
                     </div>
                 </div>
             </div>
-            <div class="SDItemImg" style="background:url('/Content/IMG/serviceBG3.jpg');" onclick="Redirect('Wohnungsauflosung')">
+            <div class="SDItemImg" style="background:url('/Content/IMG/serviceBG3.jpg');" onclick="window.location.href='/Wohnungsauflosung'">
                 <div class="SDItem">
                     <img src="~/Content/IMG/service3.png" class="SDImg" />
                     <div class="SDItemTittle">Wohnungsauflösung</div>
@@ -143,7 +148,7 @@
                     </div>
                 </div>
             </div>
-            <div class="SDItemImg" style="background:url('/Content/IMG/serviceBG4.jpg');" onclick="window.location.href = '/Wohnungsraumung'">
+            <div class="SDItemImg" style="background:url('/Content/IMG/serviceBG4.jpg');" onclick="window.location.href='/Wohnungsraumung'">
                 <div class="SDItem">
                     <img src="~/Content/IMG/service4.png" class="SDImg" />
                     <div class="SDItemTittle">Wohnungsräumung</div>
@@ -263,7 +268,7 @@
             </div>
         </div>
         <div class="turtorialsLink">
-            <a href="#">Schreib eine Bewertung</a>
+            <a href="/SchreibBewertung">Schreib eine Bewertung</a>
         </div>
         <div class="turtorialsLink">
             <a href="#">Weitere Bewertungen</a>
@@ -272,4 +277,3 @@
 </div>
 
 <!-- ------------- /4th block TURTORIALS --------------- -->
-

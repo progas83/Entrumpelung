@@ -62,26 +62,35 @@ namespace Entrumpelung.Controllers
         //    ViewBag.City = selectedCity;
         //}
         //string _defaultNumber = "49 00 0 000 000 0";
+        [HttpPost]
+        public string CallBackOrder(string name, string telephone)
+        {
+            CallBackManager.CallBackNotify(name, telephone);
+            return string.Empty;
+        }
+
+
         [HttpGet]
         public JsonResult UpdateCity(string selectedCity)
         {
-            User user = null;
-            City currentCity = null;
-            var userIdCookie = HttpContext.Request.Cookies.Get("UserID");
-            if (userIdCookie == null)
-            {
-                user = SetupUserID();
-            }
-            using (var con = new InfoContext())
-            {
-                user = con.Users.Where(u => u.UnicIdentic.Equals(userIdCookie.Value)).FirstOrDefault();
-                user.City = selectedCity;
+            //User user = null;
+            City currentCity = CitiesRepository.GetCity(selectedCity);
+            //var userIdCookie = HttpContext.Request.Cookies.Get("UserID");
+            //AddNewCookie("CitySelected", "true", 30);
+            //if (userIdCookie == null)
+            //{
+            //    user = SetupUserID();
+            //}
+            //using (var con = new InfoContext())
+            //{
+            //    user = con.Users.Where(u => u.UnicIdentic.Equals(userIdCookie.Value)).FirstOrDefault();
+            //    user.City = selectedCity;
                 
-                con.SaveChanges();
-                currentCity = con.Cities.Where(c => c.CityName.Equals(selectedCity)).FirstOrDefault();
-            }
+            //    con.SaveChanges();
+            //    currentCity = con.Cities.Where(c => c.CityName.Equals(selectedCity)).FirstOrDefault();
+            //}
 
-            SetupUserCookies(user);
+            //SetupUserCookies(user);
             SetupCityCookies(currentCity);
             var result = Json(currentCity);
             result.ContentEncoding = System.Text.Encoding.UTF8;
@@ -133,63 +142,68 @@ namespace Entrumpelung.Controllers
 
         protected override void OnActionExecuting(ActionExecutingContext filterContext)
         {
-            User user = null;
-            City currentCity = null;
+            if (HttpContext.Request.Cookies.Get("City") == null)
+            {
+                SetupCityCookies(null);
+            }
             
-            if (HttpContext.Request.Cookies.Get("UserID") == null)
-            {
-                user = SetupUserID();
-                
-            }
-            else
-            {
-                string userID = HttpContext.Request.Cookies.Get("UserID").Value;
-                using (var con = new InfoContext())
-                {
-                    user = con.Users.Where(u => u.UnicIdentic.Equals(userID)).FirstOrDefault();
-                }
-            }
-            currentCity = GetUsersCity(user);
-            SetupUserCookies(user);
-            SetupCityCookies(currentCity);
+            //User user = null;
+            //City currentCity = null;
+
+            //if (HttpContext.Request.Cookies.Get("UserID") == null)
+            //{
+            //    user = SetupUserID();
+
+            //}
+            ////else
+            ////{
+            ////    string userID = HttpContext.Request.Cookies.Get("UserID").Value;
+            ////    using (var con = new InfoContext())
+            ////    {
+            ////        user = con.Users.Where(u => u.UnicIdentic.Equals(userID)).FirstOrDefault();
+            ////    }
+            ////}
+            //currentCity = GetUsersCity(user);
+            //SetupUserCookies(user);
+
 
         }
 
-        private City GetUsersCity(User user)
-        {
-            City city = null;
-            if(user!=null)
-            {
-                using (var con = new InfoContext())
-                {
-                    city = con.Cities.FirstOrDefault(c => c.CityName.Equals(user.City));
-                }
-            }
-            return city;
-        }
+        //private City GetUsersCity(User user)
+        //{
+        //    City city = null;
+        //    if(user!=null)
+        //    {
+        //        using (var con = new InfoContext())
+        //        {
+        //            city = con.Cities.FirstOrDefault(c => c.CityName.Equals(user.City));
+        //        }
+        //    }
+        //    return city;
+        //}
 
-        private User SetupUserID()
-        {
-            Guid createdID = Guid.NewGuid();
+        //private User SetupUserID()
+        //{
+        //  //  Guid createdID = Guid.NewGuid();
 
-            User user = null;
-            using (var con = new InfoContext())
-            {
-                user = new User() { UnicIdentic = createdID.ToString() };
-                con.Users.Add(user);
-                con.SaveChanges();
-            }
+        //    User user = null;
+        //    using (var con = new InfoContext())
+        //    {
+        //        user = new User() { UnicIdentic = createdID.ToString() };
+        //        con.Users.Add(user);
+        //        con.SaveChanges();
+        //    }
 
-            return user;
-        }
+        //    return user;
+        //}
 
-        private void SetupUserCookies(User user)
-        {
-            if(user!=null)
-            {
-                AddNewCookie("UserID", user.UnicIdentic, 30);
-            }
-        }
+        //private void SetupUserCookies(User user)
+        //{
+        //    if(user!=null)
+        //    {
+        //        AddNewCookie("UserID", user.UnicIdentic, 30);
+        //    }
+        //}
         private readonly string defaultCity = "Minden";
         private readonly string defaultCityCode = "0571";
         private readonly string defaultTel1 = "829 45 878";
@@ -197,15 +211,15 @@ namespace Entrumpelung.Controllers
         {
             if(city!=null)
             {
-                AddNewCookie("City", city.CityName , 30);
+                AddNewCookie("City", Server.UrlEncode(city.CityName) , 30);
                 AddNewCookie("Tel1", city.CityTel1 , 30);
-                AddNewCookie("CityCode", city.CityCode, 30);
+                AddNewCookie("CityCode",city.CityCode, 30);
             }
             else
             {
-                AddNewCookie("City",  "Minden", 30);
-                AddNewCookie("Tel1",  "829 45 878", 30);
-                AddNewCookie("CityCode", "0571", 30);
+                AddNewCookie("City", defaultCity, 30);
+                AddNewCookie("Tel1", defaultTel1, 30);
+                AddNewCookie("CityCode", defaultCityCode, 30);
             }
         }
 

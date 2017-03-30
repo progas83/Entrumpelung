@@ -3,18 +3,24 @@
     string fullTel1Number = "0571. 829 45 878";
     string tel1 = "";
     string cityCode = "";
-    if (Request.Cookies["City"] != null)
-    {
-        cityName = Request.Cookies["City"].Value;
-    }
+    string cityWasSelected = Request.Cookies["CitySelected"]?.Value ??  "false";
+
+    cityName = Server.UrlDecode(Request.Cookies["City"]?.Value);
+    tel1 = Request.Cookies["Tel1"]?.Value;
+    cityCode = Request.Cookies["CityCode"]?.Value;
+    //if (Request.Cookies["City"] != null)
+    //{
+
+    //}
 
 
-    if (Request.Cookies["Tel1"] != null && Request.Cookies["CityCode"]!=null)
-    {
-        tel1 = Request.Cookies["Tel1"].Value;
-        cityCode = Request.Cookies["CityCode"].Value;
+    //if (Request.Cookies["Tel1"] != null && Request.Cookies["CityCode"]!=null)
+    //{
 
-    }
+
+    //}
+
+
     fullTel1Number = string.Format("{0}. {1}",cityCode, tel1);
     string sityNameWrapper = "<span class='currentCity'>" + @cityName + "</span>";
     string inCityName = " in " + @sityNameWrapper;
@@ -31,6 +37,7 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/Scripts/jquery-1.10.2.js")
     @Scripts.Render("~/Scripts/bootstrap.min.js")
+    @Scripts.Render("~/Scripts/jquery.unobtrusive-ajax.min.js")
 </head>
 
 <body>
@@ -38,10 +45,10 @@
     <div id="callTop">
         <div class="box">
             <div class="callTopPhonesWrapper">
-                <div class="numberWrapper"><div class="callTopPhone"></div><a class="callTopNum" href="callto:@cityCode@tel1">@fullTel1Number</a>
+                <div class="numberWrapper"><div class="callTopPhone"></div><a class="callTopNum cityTel" href="tel:@cityCode@tel1">@fullTel1Number</a>
                 </div>
                 <div class="numberWrapper">
-                    <div class="callTopFax"></div><a class="callTopNum" href="callto:057182945879">0571. 829 45  879</a>
+                    <div class="callTopFax"></div><a class="callTopNum" href="tel:057182945879">0571. 829 45  879</a>
                 </div>
             </div>
             <div class="callTopCallBackWrapper">
@@ -69,8 +76,8 @@
                 </p>
             </div>
             <div class="headPnonesBlock">
-                <div class="headPhonesImg1"></div><div class="headPhonesNumbers"><a class="cityTel" href="callto:@cityCode@tel1">@fullTel1Number</a></div>
-                <div class="headPhonesImg2"></div><div class="headPhonesNumbers"><a class="cityFax" href="callto:057182945879">0571. 829 45  879</a></div>
+                <div class="headPhonesImg1"></div><div class="headPhonesNumbers"><a class="cityTel" href="tel:@cityCode@tel1">@fullTel1Number</a></div>
+                <div class="headPhonesImg2"></div><div class="headPhonesNumbers"><a class="cityFax" href="tel:057182945879">0571. 829 45  879</a></div>
             </div>
         </div>
         <div class="crumbsLine"><div class="box">Home > Entermpuling @Html.Raw(@inCityName)</div></div>
@@ -79,7 +86,7 @@
 
 
     <a href="#x" class="overlay" id="city"></a>
-    <div class="popup">
+    <div class="popup" >
         <span class="popupTittle">Wählen Sie Ihre Stadt</span>
         <div class="radioBox">
             <div class="radio">
@@ -110,8 +117,8 @@
                 <label><input type="radio" name="cityRadio" />Kassel</label>
             </div>
         </div>
-            <a class="close" title="Закрыть" href="#close"></a>
-    <a href="#x" class="chooseCityLink">Wählen</a>    
+           <a class="close" title="Schließen" href="#close"></a>
+  @*  <a href="#x" class="chooseCityLink">Wählen</a>*@    
     </div>
     <div class="full-area">
 
@@ -127,12 +134,12 @@
                 <table class="tablePhones">
                     <tr>
                         <td>Tel:</td>
-                        <td><a href="callto:057182945878">0571. 829 45 878</a></td>
+                        <td><a href="tel:057182945878">0571. 829 45 878</a></td>
                     </tr>
                     <tr>
                         <td>Fax:</td>
                         <td>
-                            <a href="callto:057182945879">0571. 829 45 879</a>
+                            <a href="tel:057182945879">0571. 829 45 879</a>
                         </td>
                     </tr>
                     <tr>
@@ -145,11 +152,11 @@
             </div>
         </div>
     </div>
-
+    
     <script>
         function SetupTelephoneNumbers(cityCode, cityTel1) {
             $('.cityTel').text(cityCode + '. ' +cityTel1);
-            $('.cityTel').attr("href", 'callto:' +cityCode+cityTel1);
+            $('.cityTel').attr("href", 'tel:' +cityCode+cityTel1);
             //console.log(selectedTelephon);
         }
 
@@ -169,12 +176,12 @@
             function () {
 
               
-                $(".cityChange").click(
-                    /*function () {
+                /*  $(".cityChange").click(
+                   function () {
                         $(".klassen-tel").collapse('toggle');
-                    */
+                    
                 }
-                    );
+                    );*/
                 var i;
                 var cityRadioElements = document.getElementsByName("cityRadio");
                 for(i=0;i<cityRadioElements.length;i++)
@@ -194,6 +201,7 @@
                                         SetupTelephoneNumbers(data.CityCode,data.CityTel1);
                                         //SetupCurrentCity(cityRadioElements[i].parentElement.lastChild.nodeValue);
                                         SetupCurrentCity(data.CityName);
+                                        window.location.href = '#x';
                                     },
                                     error: function(err)
                                     {
@@ -205,7 +213,7 @@
                                     cache: false
                                     
                                 });
-                                $(".klassen-tel").collapse('hide');
+                              //  $(".klassen-tel").collapse('hide');
                             });
                         }(i)
                     }(i));
@@ -216,10 +224,10 @@
     </script>
 
     <script>
-        
+
         var callTopFlag = false;
         window.onscroll = function() {
-            
+
             if(window.pageYOffset>210 && callTopFlag==false)
             {
                 callTopFlag=true;
@@ -232,8 +240,23 @@
             }
         }
 
-        window.onload = function () {document.getElementById('question').setAttribute('style','top:7px;'); }
-        function closeQuestion() {document.getElementById('question').setAttribute('style','top:-150px;');}
+        window.onload = function ()
+        {
+            document.getElementById('question').setAttribute('style','top:7px;');
+            if(@cityWasSelected == true)
+            {
+                closeQuestion();
+            }
+        }
+        function closeQuestion() 
+        { 
+
+            var date = new Date;
+            date.setDate(date.getDate() + 30);
+            document.cookie = "CitySelected=true; path=/; expires=" + date.toUTCString();
+
+            document.getElementById('question').setAttribute('style','top:-150px;');
+        }
 
     </script>
 
