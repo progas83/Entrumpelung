@@ -74,7 +74,7 @@ namespace Entrumpelung.Controllers
         public JsonResult UpdateCity(string selectedCity)
         {
             //User user = null;
-            City currentCity = CitiesRepository.GetCity(selectedCity);
+            City currentCity = CitiesRepository.GetCity(Server.UrlDecode(selectedCity));
             //var userIdCookie = HttpContext.Request.Cookies.Get("UserID");
             //AddNewCookie("CitySelected", "true", 30);
             //if (userIdCookie == null)

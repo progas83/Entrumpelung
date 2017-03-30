@@ -190,7 +190,8 @@
 
                         return function () {
                             cityRadioElements[i].addEventListener("click", function () {
-                                var selectedCityUrl = '@Url.Action("UpdateCity")' + '?selectedCity=' + cityRadioElements[i].parentElement.lastChild.nodeValue;
+                                
+                                var selectedCityUrl = '@Url.Action("UpdateCity")' + '?selectedCity=' +encodeURI(cityRadioElements[i].parentElement.lastChild.nodeValue);
                                 $.ajax({
                                     url: selectedCityUrl ,
                                     contentType: "application/json; charset=utf-8",
