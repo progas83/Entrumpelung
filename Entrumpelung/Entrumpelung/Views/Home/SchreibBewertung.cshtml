@@ -1,7 +1,17 @@
-﻿
+﻿@model Entrumpelung.Models.CustomerReview
+
 @{
     ViewBag.Title = "SchreibBewertung";
 }
 
 <h2>SchreibBewertung</h2>
+<div>
 
+    @using(Ajax.BeginForm("SendReview", new AjaxOptions() { HttpMethod = "Post" }))
+    {
+        <input type="text" name="CustomerName" />
+        <input type="text" name="ReviewText"/>
+        <input type="submit" value="Send review"/> 
+    }
+
+</div>

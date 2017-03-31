@@ -15,6 +15,7 @@ namespace Entrumpelung.Controllers
      //   private Dictionary<string, string> _cityTeldict = new Dictionary<string, string>();
         public HomeController()
         {
+
             //_cityTeldict.Add("Bremen", "49 421 111111111");
             //_cityTeldict.Add("Frankfurt am Mein", "49 69 2222222");
             //_cityTeldict.Add("Hamburg", "49 40 33 33 33 33");
@@ -46,14 +47,14 @@ namespace Entrumpelung.Controllers
             //  HttpContext.Response.Cookies["UserID"].Value = Guid.NewGuid().ToString();
         }
 
-        private City InitCity(string cityName, string cityCode, string cityTel1)
-        {
-            City city = new City();
-            city.CityName = cityName;
-            city.CityCode = cityCode;
-            city.CityTel1 = cityTel1;
-            return city;
-        }
+        //private City InitCity(string cityName, string cityCode, string cityTel1)
+        //{
+        //    City city = new City();
+        //    city.CityName = cityName;
+        //    city.CityCode = cityCode;
+        //    city.CityTel1 = cityTel1;
+        //    return city;
+        //}
         //[HttpPost]
         //public void UpdateCity(string selectedCity)
         //{
@@ -69,6 +70,16 @@ namespace Entrumpelung.Controllers
             return string.Empty;
         }
 
+        [HttpPost]
+        public string SendReview(CustomerReview review)
+        {
+            review.CustomerCity = Server.UrlDecode(HttpContext.Request.Cookies.Get("City").Value);
+            review.ReviewDate = DateTime.UtcNow;
+
+            ReviewsManager.Instance.AddReview(review);
+
+            return "Success";
+        }
 
         [HttpGet]
         public JsonResult UpdateCity(string selectedCity)
@@ -137,7 +148,7 @@ namespace Entrumpelung.Controllers
 
         public ActionResult SchreibBewertung()
         {
-            return View();
+            return View(new CustomerReview());
         }
 
         protected override void OnActionExecuting(ActionExecutingContext filterContext)
