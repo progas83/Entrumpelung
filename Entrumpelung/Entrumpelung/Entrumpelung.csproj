@@ -178,10 +178,7 @@
     <Compile Include="Models\City.cs" />
     <Compile Include="Models\CustomerReview.cs" />
     <Compile Include="Models\DbContextInitializer.cs" />
-    <Compile Include="Models\ExtensionMethods.cs" />
     <Compile Include="Models\InfoContext.cs" />
-    <Compile Include="Models\ReviewRepository.cs" />
-    <Compile Include="Models\ReviewsManager.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -289,7 +286,9 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -316,6 +315,8 @@
     <Content Include="Views\Home\Tatortreiniger.cshtml" />
     <Content Include="Views\Home\SchreibBewertung.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\ReviewView.cshtml" />
+    <Content Include="Views\Home\ReviewCollectionView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

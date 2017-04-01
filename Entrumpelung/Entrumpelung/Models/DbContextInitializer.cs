@@ -6,7 +6,7 @@ using System.Web;
 
 namespace Entrumpelung.Models
 {
-    public class DbContextInitializer : DropCreateDatabaseAlways<InfoContext>// DropCreateDatabaseIfModelChanges<InfoContext>
+    public class DbContextInitializer :  DropCreateDatabaseAlways<InfoContext>// DropCreateDatabaseIfModelChanges<InfoContext> //
     {
         protected override void Seed(InfoContext context)
         {
@@ -23,13 +23,13 @@ namespace Entrumpelung.Models
 
         }
 
-        private City InitCity(string cityName, string cityCode, string cityTel1)
-        {
-            City city = new City();
-            city.CityName = "";
-            city.CityCode = "";
-            city.CityTel1 = "";
-            return city;
-        }
+        //private City InitCity(string cityName, string cityCode, string cityTel1)
+        //{
+        //    City city = new City();
+        //    city.CityName = "";
+        //    city.CityCode = "";
+        //    city.CityTel1 = "";
+        //    return city;
+        //}
     }
 }

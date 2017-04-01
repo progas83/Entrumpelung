@@ -71,14 +71,29 @@ namespace Entrumpelung.Controllers
         }
 
         [HttpPost]
-        public string SendReview(CustomerReview review)
+        public void SendReview(CustomerReview review)
         {
-            review.CustomerCity = Server.UrlDecode(HttpContext.Request.Cookies.Get("City").Value);
             review.ReviewDate = DateTime.UtcNow;
+            review.CustomerCity = Server.UrlDecode(Request.Cookies.Get("City").Value);
+            using (var con = new InfoContext())
+            {
+                con.CustomerReviews.Add(review);
+                con.SaveChanges();
+            }
+            ModelState.Clear();
+            //return View("SchreibBewertung");
+        }
 
-            ReviewsManager.Instance.AddReview(review);
+        public ActionResult Updatereviews()
+        {
+            List<CustomerReview> reviews = new List<CustomerReview>();
+            using (var con = new InfoContext())
+            {
+                reviews = con.CustomerReviews.OrderByDescending(d => d.ReviewDate).ToList();
+            }
 
-            return "Success";
+            //  ViewBag.Reviews = reviews;
+            return PartialView("ReviewCollectionView", reviews);
         }
 
         [HttpGet]
@@ -148,7 +163,14 @@ namespace Entrumpelung.Controllers
 
         public ActionResult SchreibBewertung()
         {
-            return View(new CustomerReview());
+            List<CustomerReview> reviews = new List<CustomerReview>();
+            using (var con = new InfoContext())
+            {
+                reviews = con.CustomerReviews.OrderByDescending(d => d.ReviewDate).ToList();
+            }
+
+            ViewBag.Reviews = reviews;
+                return View(new CustomerReview());
         }
 
         protected override void OnActionExecuting(ActionExecutingContext filterContext)
@@ -158,63 +180,10 @@ namespace Entrumpelung.Controllers
                 SetupCityCookies(null);
             }
             
-            //User user = null;
-            //City currentCity = null;
-
-            //if (HttpContext.Request.Cookies.Get("UserID") == null)
-            //{
-            //    user = SetupUserID();
-
-            //}
-            ////else
-            ////{
-            ////    string userID = HttpContext.Request.Cookies.Get("UserID").Value;
-            ////    using (var con = new InfoContext())
-            ////    {
-            ////        user = con.Users.Where(u => u.UnicIdentic.Equals(userID)).FirstOrDefault();
-            ////    }
-            ////}
-            //currentCity = GetUsersCity(user);
-            //SetupUserCookies(user);
-
 
         }
 
-        //private City GetUsersCity(User user)
-        //{
-        //    City city = null;
-        //    if(user!=null)
-        //    {
-        //        using (var con = new InfoContext())
-        //        {
-        //            city = con.Cities.FirstOrDefault(c => c.CityName.Equals(user.City));
-        //        }
-        //    }
-        //    return city;
-        //}
 
-        //private User SetupUserID()
-        //{
-        //  //  Guid createdID = Guid.NewGuid();
-
-        //    User user = null;
-        //    using (var con = new InfoContext())
-        //    {
-        //        user = new User() { UnicIdentic = createdID.ToString() };
-        //        con.Users.Add(user);
-        //        con.SaveChanges();
-        //    }
-
-        //    return user;
-        //}
-
-        //private void SetupUserCookies(User user)
-        //{
-        //    if(user!=null)
-        //    {
-        //        AddNewCookie("UserID", user.UnicIdentic, 30);
-        //    }
-        //}
         private readonly string defaultCity = "Minden";
         private readonly string defaultCityCode = "0571";
         private readonly string defaultTel1 = "829 45 878";

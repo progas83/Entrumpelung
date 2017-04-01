@@ -7,11 +7,33 @@
 <h2>SchreibBewertung</h2>
 <div>
 
-    @using(Ajax.BeginForm("SendReview", new AjaxOptions() { HttpMethod = "Post" }))
+    @using (Ajax.BeginForm("SendReview",null, new AjaxOptions() { HttpMethod = "Post",OnSuccess = "UpdateReviews" } ,new { id="form1"}))
     {
         <input type="text" name="CustomerName" />
         <input type="text" name="ReviewText"/>
-        <input type="submit" value="Send review"/> 
+        <input type="submit" value="Send review" /> 
+    }
+   
+</div>
+
+<div class="target">
+
+    @{
+        Html.RenderPartial("ReviewCollectionView", (IEnumerable<Entrumpelung.Models.CustomerReview>)ViewBag.Reviews);
     }
 
+   @*  //("ReviewView", (IEnumerable<Entrumpelung.Models.CustomerReview>)ViewBag.Reviews);
+
+    @foreach (var r in (IEnumerable<Entrumpelung.Models.CustomerReview>)ViewBag.Reviews)
+     {
+
+     }*@
+    
 </div>
+<script type="text/javascript">
+    function UpdateReviews() {
+        document.getElementById('form1').reset();
+       // $("#form1").reset;
+        $('.target').load('/Updatereviews');
+    }
+</script>

@@ -9,12 +9,14 @@ namespace Entrumpelung.Models
     public class InfoContext : DbContext
     {
        
-        public InfoContext():base("KlassenConnection")
+        public InfoContext():base("KlassenConnectionR")
         {
 
         }
 
-        public DbSet<User> Users { get; set; }
-        public DbSet<City> Cities { get; set; }
+
+        public DbSet<CustomerReview> CustomerReviews { get; set; }
+      //  public DbSet<User> Users { get; set; }
+      //  public DbSet<City> Cities { get; set; }
     }
 }
