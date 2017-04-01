@@ -21,10 +21,14 @@
     string inCityName = " in " + @sityNameWrapper;
 }
 
+
+
+
+
 <div class="box content">
 
     <h1>Entrümpelung @Html.Raw(@inCityName) </h1>
-    <p>Fachbetrieb für Entrümpelung - Rudi Rümpel</p>
+    <p>Fachbetrieb für Entrümpelung - Klassen-Entrümpelung</p>
 
     <ol>
         <li>Schnell</li>
@@ -211,7 +215,10 @@
         <h2 class="turtorialsTittle">BEWERTUNGEN</h2>
         <div class="turtorialsTittleLine"></div>
         <div class="turtorialsWrapper">
-            <div class="turtorialsItem">
+            <div id="bewertungenRegion">
+
+            </div>
+            @*<div class="turtorialsItem">
                 <div class="avatar" style="background-image:url(/Content/IMG/no-photo.gif);"></div>
                 <div class="turtorialText">
                     <div class="tittle">
@@ -265,15 +272,48 @@
                 <div class="turtorialsGallery">
                     <div class="works" style="background-image:url(/Content/IMG/no-photo-work.png);"></div>
                 </div>
-            </div>
+            </div>*@
         </div>
         <div class="turtorialsLink">
             <a href="/SchreibBewertung">Schreib eine Bewertung</a>
         </div>
         <div class="turtorialsLink">
-            <a href="#">Weitere Bewertungen</a>
+            <a href="javascript: LoadNextPartOfBewertungen(-1)" ><<< Weitere Bewertungen</a>
+            <a href="javascript: LoadNextPartOfBewertungen(1)" >Weitere Bewertungen1 >>></a>
+            
         </div>
     </div>
 </div>
 
 <!-- ------------- /4th block TURTORIALS --------------- -->
+
+   <script type="text/javascript">
+       var prev = (function () {
+           var value = 1;
+           function prev(p) {
+               return value = (value + p)>0? value + p : 1 ;
+           }
+           return prev;
+       }(1));
+    function LoadNextPartOfBewertungen(dest)
+    {
+        
+
+        console.log("loaded....");
+        return function () {
+            var k = prev(dest);
+            console.log("Next = " + k);
+            $('#bewertungenRegion').load('/LoadPartOfBewertungen', { page: k }, function (responseText, textStatus, XMLHttpRequest) {
+                if (textStatus == "error")
+                {
+                    prev(-1);
+                }
+            });
+        }()
+      
+    };
+
+   window.onload = LoadNextPartOfBewertungen(0);
+</script> 
+  
+

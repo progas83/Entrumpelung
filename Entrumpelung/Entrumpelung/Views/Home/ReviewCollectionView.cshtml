@@ -1,5 +1,10 @@
 ﻿@model IEnumerable<Entrumpelung.Models.CustomerReview>
 
+@{
+    Layout = null;
+}
+
+
 @foreach (var r in Model)
 {
     @Html.Partial("ReviewView", r);

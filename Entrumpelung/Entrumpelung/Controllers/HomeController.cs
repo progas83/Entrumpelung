@@ -69,6 +69,22 @@ namespace Entrumpelung.Controllers
             CallBackManager.CallBackNotify(name, telephone);
             return string.Empty;
         }
+        private readonly int _pageSize = 4;
+       [HttpPost]
+        public ActionResult LoadPartOfBewertungen(int page=1)
+        {
+
+            List<CustomerReview> reviews = new List<CustomerReview>();
+
+            using (var con = new InfoContext())
+            {
+                reviews = con.CustomerReviews.OrderByDescending(d => d.ReviewDate).Skip((page-1)*_pageSize).Take(_pageSize).ToList();
+            }
+            if (page > 5)
+                return HttpNotFound();
+
+                   return View("ReviewCollectionView", reviews);
+        }
 
         [HttpPost]
         public void SendReview(CustomerReview review)

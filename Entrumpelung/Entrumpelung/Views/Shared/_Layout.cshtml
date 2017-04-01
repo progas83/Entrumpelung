@@ -52,9 +52,13 @@
                 </div>
             </div>
             <div class="callTopCallBackWrapper">
-                <input placeholder="Name" />
-                <input placeholder="Telefon*" />
-                <input class="buttonSubmit" type="submit" value="Rückruf">
+                @using (Ajax.BeginForm("CallBackOrder",null, new AjaxOptions { HttpMethod = "POST", OnSuccess = "(function(){ document.getElementById('topCallback').reset(); }())" }, new { id = "topCallback" }))
+                {
+                    <input placeholder="Name" />
+                    <input placeholder="Telefon*" />
+                    <input class="buttonSubmit" type="submit" value="Rückruf">
+                }
+               
             </div>
         </div>
     </div>
@@ -123,7 +127,6 @@
     <div class="full-area">
 
         @RenderBody()
-
     </div>
 
     <div class="full-area footer">
