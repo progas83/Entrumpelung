@@ -230,12 +230,14 @@
     <Content Include="Content\IMG\move2.jpg" />
     <Content Include="Content\IMG\moveBoxes.jpg" />
     <Content Include="Content\IMG\moveElextronic.jpg" />
+    <Content Include="Content\IMG\next2.png" />
     <Content Include="Content\IMG\no-photo-work.png" />
     <Content Include="Content\IMG\no-photo.gif" />
     <Content Include="Content\IMG\officeMove3.jpg" />
     <Content Include="Content\IMG\officeMove4.jpg" />
     <Content Include="Content\IMG\phoneIco.png" />
     <Content Include="Content\IMG\phone_white.png" />
+    <Content Include="Content\IMG\prev2.png" />
     <Content Include="Content\IMG\service1.png" />
     <Content Include="Content\IMG\service2.png" />
     <Content Include="Content\IMG\service3.png" />

@@ -963,15 +963,6 @@ text-align:center;
     display:inline-block;
     width:calc(40% - 180px);
 }
-@media only screen and (max-width:600px) {
-    .turtorialsTittleLine {
-        display: none;
-    }
-    .turtorialsTittle {
-    font-size:28px;
-    width:inherit;
-    }
-}
 .turtorialsTittle {
     font-size:35px;
     font-weight:bold;
@@ -985,6 +976,22 @@ text-align:center;
     margin-bottom:20px;
     margin-top:20px;
 }
+@media only screen and (max-width:600px) {
+    .turtorialsTittleLine {
+        display: none;
+    }
+    .turtorialsTittle {
+    font-size:28px !important;
+    width:inherit !important;
+    }
+}
+@media only screen and (max-width:400px) {
+4
+    .turtorialsTittle {
+    font-size:25px !important;
+    }
+}
+
 .turtorialsWrapper {
     width:100%;
     text-align:center;
@@ -1052,6 +1059,7 @@ text-align:center;
     min-width:300px;
     display:inline-block;
    margin-bottom:20px;
+   font-size:25px;
 }
 .turtorialsLink a {
     font-size:25px;
@@ -1084,6 +1092,19 @@ text-align:center;
     font-size:14px;
 }
 }
+@media only screen and (max-width:750px) {
+    .turtorialsLink {
+    display:block;
+    margin:auto;
+        width: 100%;
+        margin-bottom:15px;
+    }
+}
+@media only screen and (max-width:400px) {
+    .turtorialsLink {
+    font-size:18px;
+    }
+}
 @media only screen and (max-width:600px) {
     .turtorialsItem .avatar {
     display:block;
@@ -1104,3 +1125,59 @@ text-align:center;
 }
 }
 /* ********************** /TURTORIALS STYLES ************************** */
+
+/* ********************** /ADD TURTORIAL STYLES ************************** */
+.turtorialsItem input, textarea {
+    display:block;
+    margin:auto;
+    margin-bottom:5px;
+    width:40%;
+    min-width:260px;
+    font-size:16px;
+    line-height:1.5;
+    color:#565050;
+    border-radius:5px;
+    padding:10px;
+    border: 1px solid #565050;
+    box-shadow:none;
+
+}
+.turtorialsItem input[type="text"] {
+
+}
+.turtorialsItem textarea {
+  height:200px;
+  resize:none;    
+}
+.turtorialsItem input[type="submit"] {
+       background:#015ea1;
+       color:#fff !important;
+       font-weight:bold;
+       text-align:center;
+       border-radius:10px;
+       font-size:24px;
+}
+.turtorialsItem input[type="submit"]:hover {
+       background:#565050;
+     
+}
+.turtorialsItem input[type="file"] {
+    
+}
+.turtorialsItem .fileTittle {
+    color:#015ea1;
+    font-weight:bold;
+    font-size:22px;
+}
+@media only screen and (max-width:900px) {
+    .turtorialsItem input, textarea {
+      width: 55%;
+    }
+}
+@media only screen and (max-width:600px) {
+    .turtorialsItem input, textarea {
+      width: 70%;
+    }
+}
+
+/* ********************** /ADD TURTORIAL STYLES ************************** */
