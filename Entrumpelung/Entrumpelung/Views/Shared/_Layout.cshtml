@@ -41,6 +41,7 @@
 </head>
 
 <body>
+    <div id="popupSuccessCallBack" >Wir werden Sie in Kürze kontaktieren</div>
     <div id="question"><div class="questionBox"><p>Dies ist Ihre Stadt?</p><p><a onclick="closeQuestion()">Ja</a><a href="#city" onclick="closeQuestion()">Nein</a></p></div><div class="questioArrow"></div></div>
     <div id="callTop">
         <div class="box">
@@ -56,7 +57,7 @@
                 {
                     <input placeholder="Name" />
                     <input placeholder="Telefon*" />
-                    <input class="buttonSubmit" type="submit" value="Rückruf">
+                    <input class="buttonSubmit" type="submit" value="Rückruf" onclick="showPopupSuccessCallBack()">
                 }
                
             </div>
@@ -260,6 +261,12 @@
             document.cookie = "CitySelected=true; path=/; expires=" + date.toUTCString();
 
             document.getElementById('question').setAttribute('style','top:-150px;');
+        }
+
+        function showPopupSuccessCallBack() 
+        {
+            document.getElementById('popupSuccessCallBack').setAttribute('style','top:30%;');
+            setTimeout (function e() {document.getElementById('popupSuccessCallBack').setAttribute('style','top:-70%;');},4000);
         }
 
     </script>

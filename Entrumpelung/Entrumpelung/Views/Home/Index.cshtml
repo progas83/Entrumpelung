@@ -89,9 +89,11 @@
                     {
                         <input name="name" placeholder="Name" />
                         <input name="telephone" placeholder="Telefon*" />
-                        <input class="buttonSubmit" type="submit" value="Rückruf">
+                        <input class="buttonSubmit" type="submit" value="Rückruf" onclick="callBackOk()">
                     }
+                   
                 </div>
+                <div id="successCallBack">Wir werden Sie in Kürze kontaktieren</div>
             </div>
         </div>
     </div>
@@ -315,5 +317,13 @@
 
    window.onload = LoadNextPartOfBewertungen(0);
 </script> 
+<script>
+    function callBackOk()
+    {
+        
+        document.getElementById('successCallBack').setAttribute('style', 'display:block; ');
+     
+    }
+</script>
   
 

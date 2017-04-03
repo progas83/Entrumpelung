@@ -792,6 +792,36 @@ text-align:center;
     font-weight:bold;
     font-size:28px;
 }
+#successCallBack {
+    display:none;
+    width: 100%;
+    text-align: center;
+    font-size: 25px;
+    color: #fff;
+    padding: 10px;
+    margin-top: 30px;
+    font-weight: bold;
+    border: 1px solid white;
+    border-radius: 10px;
+}
+#popupSuccessCallBack 
+{
+    position:fixed;
+    
+    background:#565050;
+    opacity:0.9;
+    border-radius:10px;
+    color:#fff;
+    width: 50%;
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+    padding:5%;
+    left: 25%;
+    z-index: 10000;
+    transition: 1s;
+    top:-70%;
+}
 /* ********************** /CALL BACK STYLES ************************** */
 /* ********************** SERVICE DETAILS STYLES ************************** */
 .SDWrapperOut {
