@@ -8,18 +8,6 @@
     cityName = Server.UrlDecode(Request.Cookies["City"]?.Value);
     tel1 = Request.Cookies["Tel1"]?.Value;
     cityCode = Request.Cookies["CityCode"]?.Value;
-    //if (Request.Cookies["City"] != null)
-    //{
-
-    //}
-
-
-    //if (Request.Cookies["Tel1"] != null && Request.Cookies["CityCode"]!=null)
-    //{
-
-
-    //}
-
 
     fullTel1Number = string.Format("{0}. {1}",cityCode, tel1);
     string sityNameWrapper = "<span class='currentCity'>" + @cityName + "</span>";
