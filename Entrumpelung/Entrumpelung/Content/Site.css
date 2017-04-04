@@ -820,7 +820,7 @@ text-align:center;
     left: 25%;
     z-index: 10000;
     transition: 1s;
-    top:-70%;
+    top:calc(-70% - 300px);
 }
 /* ********************** /CALL BACK STYLES ************************** */
 /* ********************** SERVICE DETAILS STYLES ************************** */
